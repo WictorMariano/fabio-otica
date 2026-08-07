@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fabio-otica-altiplano.marianowictor.chatgpt.site"),
   title: "Fábio Ótica | Óculos, estilo e cuidado no Altiplano",
   description: "Conheça a Fábio Ótica no Altiplano, em João Pessoa. Armações, lentes e uma experiência pensada para o seu estilo.",
   openGraph: {

@@ -92,9 +92,9 @@ export default function Home() {
             <a className="text-link" href="#visite">Visite nossa loja <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div className="hero__visual" aria-label="Fachada da Fábio Ótica">
+        <div className="hero__visual" aria-label="Interior real da Fábio Ótica">
           <div className="hero__image-wrap">
-            <img src="/images/fabio-otica-inauguracao.png" alt="Fachada e interior iluminado da Fábio Ótica, no Altiplano" />
+            <img src="/images/loja-real-hero.png" alt="Interior real da Fábio Ótica, com mobiliário em madeira, expositores iluminados e pendentes" />
           </div>
           <div className="hero__seal">
             <span>NOVA</span>
@@ -149,10 +149,13 @@ export default function Home() {
       <section className="store section" id="loja">
         <div className="section__number">02</div>
         <div className="store__visual">
-          <div className="store__frame">
-            <img src="/images/fabio-otica-inauguracao.png" alt="Interior contemporâneo da Fábio Ótica com madeira e iluminação quente" />
+          <div className="store__frame store__frame--main">
+            <img src="/images/armacao-editorial.png" alt="Fotografia editorial de uma armação sobre uma superfície de madeira" />
           </div>
-          <div className="store__tag"><span>●</span> Altiplano · João Pessoa</div>
+          <div className="store__frame store__frame--secondary">
+            <img src="/images/ajuste-editorial.png" alt="Fotografia editorial mostrando o cuidado no ajuste de uma armação" />
+          </div>
+          <div className="store__tag"><span>●</span> Curadoria · cuidado · estilo</div>
         </div>
         <div className="store__copy">
           <p className="eyebrow"><span /> Nosso espaço</p>
