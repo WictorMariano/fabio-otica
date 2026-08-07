@@ -27,7 +27,7 @@ img { display:block; max-width:100%; }
 .brand--compact .brand__sub b { width:18px; }
 .brand--compact .brand__glasses i { width:15px; height:8px; border-width:1.5px; }
 .brand--compact .brand__glasses:after { left:14px; top:3px; width:5px; border-width:1px; }
-.nav { display:flex; gap:36px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+.nav { display:flex; gap:28px; font-size:10px; letter-spacing:.1em; text-transform:uppercase; }
 .nav a { transition:color .25s; }
 .nav a:hover { color:var(--gold-light); }
 .header__cta { justify-self:end; color:var(--gold-light); font-size:11px; letter-spacing:.12em; text-transform:uppercase; display:flex; gap:15px; align-items:center; }
@@ -74,7 +74,13 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .manifesto__copy .dropcap { color:var(--ink); font-size:25px; }
 .dropcap:first-letter { float:left; color:var(--gold); font-size:74px; line-height:.75; padding:9px 10px 0 0; }
 .line-link { color:var(--ink); border-bottom-color:#b9a995; margin-top:20px; }
-.values { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); margin-top:120px; border-top:1px solid #cfc4b6; }
+.manifesto__visual { grid-column:1/-1; height:min(58vw,680px); margin:95px 0 0; position:relative; overflow:hidden; background:var(--ink); }
+.manifesto__visual:after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(16,12,8,.7),transparent 45%); }
+.manifesto__visual img { width:100%; height:100%; object-fit:cover; }
+.manifesto__visual figcaption { position:absolute; z-index:2; left:35px; right:35px; bottom:28px; color:white; display:flex; align-items:end; justify-content:space-between; }
+.manifesto__visual figcaption span { font-family:"Cormorant Garamond",serif; font-size:26px; }
+.manifesto__visual figcaption b { color:var(--gold-light); font-size:8px; letter-spacing:.22em; font-weight:400; }
+.values { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); margin-top:70px; border-top:1px solid #cfc4b6; }
 .values article { padding:35px 8% 10px 0; border-right:1px solid #cfc4b6; }
 .values article+article { padding-left:8%; }
 .values article:last-child { border:0; }
@@ -112,6 +118,30 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .store__copy ul { list-style:none; padding:0; margin:35px 0; border-top:1px solid #d2c7b9; }
 .store__copy li { padding:17px 0; border-bottom:1px solid #d2c7b9; font-family:"Cormorant Garamond",serif; font-size:16px; }
 .store__copy li span { color:var(--gold); font-family:"Manrope",sans-serif; font-size:8px; margin-right:20px; }
+
+.testimonials { padding:130px 8vw; background:var(--ink); color:white; display:grid; grid-template-columns:.9fr 1.1fr; gap:10vw; align-items:center; position:relative; overflow:hidden; }
+.testimonials:before { content:"“"; position:absolute; right:3vw; top:-110px; color:rgba(212,160,94,.07); font-family:"Cormorant Garamond",serif; font-size:430px; line-height:1; }
+.testimonials h2,.contact h2 { font-size:clamp(55px,6.2vw,94px); font-family:"Cormorant Garamond",serif; font-weight:400; letter-spacing:-.035em; line-height:.9; margin:0; }
+.testimonials h2 em,.contact h2 em { color:var(--gold-light); font-weight:400; }
+.testimonials__heading>p:last-child { color:#a79b8d; max-width:480px; font-family:"Cormorant Garamond",serif; font-size:19px; line-height:1.6; margin-top:30px; }
+.testimonials__google { position:relative; border:1px solid rgba(212,160,94,.45); padding:55px; background:rgba(255,255,255,.025); }
+.google-mark { width:45px; height:45px; border:1px solid var(--gold); border-radius:50%; display:grid; place-items:center; color:var(--gold-light); font-family:"Cormorant Garamond",serif; font-size:24px; }
+.stars { color:var(--gold-light); letter-spacing:.18em; font-size:24px; margin:30px 0 18px; }
+.testimonials__google h3 { font-family:"Cormorant Garamond",serif; font-size:34px; font-weight:400; margin:0 0 15px; }
+.testimonials__google>p { color:#a79b8d; font-family:"Cormorant Garamond",serif; font-size:18px; line-height:1.6; }
+.testimonials__actions { margin-top:32px; display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+.line-link--light { color:white; border-bottom-color:#6f6257; }
+
+.contact { display:grid; grid-template-columns:1.08fr .92fr; min-height:720px; background:var(--ivory); }
+.contact__map { min-height:720px; position:relative; filter:grayscale(1) sepia(.16) contrast(.95); }
+.contact__map:after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset -40px 0 70px rgba(16,12,8,.1); }
+.contact__map iframe { border:0; width:100%; height:100%; position:absolute; inset:0; }
+.contact__content { padding:100px 7vw; display:flex; flex-direction:column; justify-content:center; }
+.contact__details { margin:42px 0 35px; border-top:1px solid #cfc4b6; }
+.contact__details>div { padding:19px 0; display:grid; grid-template-columns:120px 1fr; gap:25px; border-bottom:1px solid #cfc4b6; }
+.contact__details small { color:#8a6b49; font-size:8px; letter-spacing:.2em; padding-top:5px; }
+.contact__details p { margin:0; color:#625950; font-family:"Cormorant Garamond",serif; font-size:17px; line-height:1.5; }
+.contact__actions { display:flex; align-items:center; gap:30px; flex-wrap:wrap; }
 
 .event { padding:80px 6vw; background:var(--graphite); color:white; position:relative; overflow:hidden; }
 .event:before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 80% 45%,rgba(212,160,94,.16),transparent 35%),linear-gradient(115deg,transparent 60%,rgba(255,255,255,.025) 60%); }
@@ -160,9 +190,14 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .scroll-hint { display:none; }
   .manifesto,.store { grid-template-columns:1fr; }
   .manifesto__copy { padding-top:40px; }
+  .manifesto__visual { height:600px; }
   .collections { grid-template-columns:1fr; }
   .collections__heading { position:static; }
   .store__visual { max-width:650px; }
+  .testimonials { grid-template-columns:1fr; }
+  .contact { grid-template-columns:1fr; }
+  .contact__map { min-height:520px; order:2; }
+  .contact__content { order:1; }
   .event__content { grid-template-columns:1fr; }
   .footer { grid-template-columns:1.2fr 1fr; }
   .footer__address { grid-column:1/-1; }
@@ -184,6 +219,10 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .section__number { top:40px; }
   .manifesto h2,.collections h2,.store h2,.event h2 { font-size:51px; }
   .values { grid-template-columns:1fr; margin-top:75px; }
+  .manifesto__visual { height:420px; margin-top:65px; }
+  .manifesto__visual figcaption { left:20px; right:20px; bottom:18px; }
+  .manifesto__visual figcaption span { font-size:20px; }
+  .manifesto__visual figcaption b { display:none; }
   .values article,.values article+article { border-right:0; border-bottom:1px solid #cfc4b6; padding:28px 0; }
   .collections { padding:95px 6vw; }
   .collection-card { min-height:190px; grid-template-columns:35px 1fr 35px; }
@@ -192,6 +231,12 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .store__frame--main { height:430px; }
   .store__frame--secondary { height:205px; width:55%; }
   .store__tag { left:30px; bottom:30px; }
+  .testimonials { padding:95px 6vw; }
+  .testimonials__google { padding:35px 25px; }
+  .testimonials__actions { align-items:flex-start; flex-direction:column; }
+  .contact__content { padding:85px 6vw; }
+  .contact__map { min-height:420px; }
+  .contact__details>div { grid-template-columns:1fr; gap:8px; }
   .event { padding:60px 5vw; }
   .event__content { padding:60px 0; }
   .event__date { padding:25px 20px; }

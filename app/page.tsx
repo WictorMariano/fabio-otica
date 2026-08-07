@@ -1,24 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const address =
   "Rua Roberto Paulo Moreira Coutinho, 1960, Sala 104, Altiplano, João Pessoa - PB";
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-const eventDate = new Date("2026-08-08T10:00:00-03:00").getTime();
-
-type TimeLeft = { days: number; hours: number; minutes: number; seconds: number };
-
-function getTimeLeft(): TimeLeft | null {
-  const distance = eventDate - Date.now();
-  if (distance <= 0) return null;
-  return {
-    days: Math.floor(distance / 86_400_000),
-    hours: Math.floor((distance / 3_600_000) % 24),
-    minutes: Math.floor((distance / 60_000) % 60),
-    seconds: Math.floor((distance / 1_000) % 60),
-  };
-}
+const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+const googleReviewsUrl = `https://www.google.com/search?q=${encodeURIComponent(`Fábio Ótica ${address} avaliações`)}`;
 
 function Brand({ compact = false }: { compact?: boolean }) {
   return (
@@ -39,14 +27,6 @@ function Arrow() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
-
-  useEffect(() => {
-    const update = () => setTimeLeft(getTimeLeft());
-    update();
-    const timer = window.setInterval(update, 1000);
-    return () => window.clearInterval(timer);
-  }, []);
 
   return (
     <main>
@@ -72,6 +52,7 @@ export default function Home() {
           <a href="#experiencia" onClick={() => setMenuOpen(false)}>Experiência</a>
           <a href="#colecoes" onClick={() => setMenuOpen(false)}>Coleções</a>
           <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
+          <a href="#depoimentos" onClick={() => setMenuOpen(false)}>Depoimentos</a>
           <a href="#visite" onClick={() => setMenuOpen(false)}>Localização</a>
         </nav>
         <a className="header__cta" href={mapsUrl} target="_blank" rel="noreferrer">
@@ -120,6 +101,10 @@ export default function Home() {
           <p>Por isso, cada escolha merece tempo, atenção e um olhar cuidadoso para os detalhes. Na Fábio Ótica, você encontra um ambiente feito para experimentar novas possibilidades com calma.</p>
           <a className="line-link" href="#loja">Conheça nosso espaço <Arrow /></a>
         </div>
+        <figure className="manifesto__visual">
+          <img src="/images/colecao-cinematografica.png" alt="Composição editorial cinematográfica com diferentes modelos de óculos" />
+          <figcaption><span>Uma curadoria para cada estilo</span><b>FÁBIO ÓTICA · ALTIPLANO</b></figcaption>
+        </figure>
         <div className="values">
           <article><span>01</span><h3>Curadoria</h3><p>Armações escolhidas para diferentes traços, estilos e momentos.</p></article>
           <article><span>02</span><h3>Proximidade</h3><p>Uma boa conversa para entender o que combina com você.</p></article>
@@ -170,34 +155,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="event" id="visite">
-        <div className="event__topline"><span>Convite especial</span><span>08 · 08 · 2026</span></div>
-        <div className="event__content">
-          <div className="event__copy">
-            <p className="eyebrow light"><span /> Estamos de portas abertas</p>
-            <h2>Um novo olhar<br />acaba de <em>chegar.</em></h2>
-            <p>Neste sábado, abrimos as portas de um espaço criado para transformar a escolha dos seus óculos em uma experiência especial.</p>
-          </div>
-          <div className="event__date">
-            <p><strong>08</strong><span>AGOSTO<br /><b>2026</b></span></p>
-            <div><span>SÁBADO</span><b>A PARTIR DAS 10H</b></div>
+      <section className="testimonials" id="depoimentos">
+        <div className="testimonials__heading">
+          <p className="eyebrow light"><span /> Experiências reais</p>
+          <h2>O que dizem<br />sobre a <em>Fábio Ótica.</em></h2>
+          <p>A confiança se constrói em cada atendimento. Consulte as avaliações públicas e compartilhe também a sua experiência.</p>
+        </div>
+        <div className="testimonials__google">
+          <div className="google-mark" aria-hidden="true">G</div>
+          <div className="stars" aria-label="Avaliações do Google">☆ ☆ ☆ ☆ ☆</div>
+          <h3>Os primeiros olhares começam agora.</h3>
+          <p>Esta é uma nova unidade. Assim que as primeiras avaliações verificadas forem publicadas, elas poderão ser consultadas diretamente no Google.</p>
+          <div className="testimonials__actions">
+            <a className="button button--gold" href={googleReviewsUrl} target="_blank" rel="noreferrer">Ver avaliações no Google <Arrow /></a>
+            <a className="line-link line-link--light" href={mapsUrl} target="_blank" rel="noreferrer">Avaliar no Google <Arrow /></a>
           </div>
         </div>
-        <div className="countdown" aria-label="Contagem regressiva para a inauguração">
-          {timeLeft ? (
-            <>
-              {(["days", "hours", "minutes", "seconds"] as const).map((unit) => (
-                <div key={unit}><strong>{String(timeLeft[unit]).padStart(2, "0")}</strong><span>{{ days: "dias", hours: "horas", minutes: "minutos", seconds: "segundos" }[unit]}</span></div>
-              ))}
-            </>
-          ) : (
-            <p className="countdown__open">Já estamos de portas abertas. Esperamos por você!</p>
-          )}
+      </section>
+
+      <section className="contact" id="visite">
+        <div className="contact__map">
+          <iframe
+            src={mapEmbedUrl}
+            title="Localização da Fábio Ótica no Altiplano"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
-        <div className="location-card">
-          <div className="location-card__pin" aria-hidden="true">⌖</div>
-          <div><small>ONDE ESTAMOS</small><h3>Rua Roberto Paulo Moreira Coutinho, 1960</h3><p>Sala 104 · Altiplano · Em frente ao Colégio Kairós</p></div>
-          <a className="button button--gold" href={mapsUrl} target="_blank" rel="noreferrer">Abrir no mapa <Arrow /></a>
+        <div className="contact__content">
+          <p className="eyebrow"><span /> Endereço e contato</p>
+          <h2>Venha conhecer<br />seu novo <em>olhar.</em></h2>
+          <div className="contact__details">
+            <div><small>ENDEREÇO</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104 · Altiplano · João Pessoa — PB</p></div>
+            <div><small>REFERÊNCIA</small><p>Em frente ao Colégio Kairós</p></div>
+            <div><small>INAUGURAÇÃO</small><p>Sábado, 08 de agosto · a partir das 10h</p></div>
+          </div>
+          <div className="contact__actions">
+            <a className="button button--dark" href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a>
+            <a className="line-link" href={googleReviewsUrl} target="_blank" rel="noreferrer">Ver no Google <Arrow /></a>
+          </div>
         </div>
       </section>
 
