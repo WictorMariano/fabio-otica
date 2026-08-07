@@ -150,7 +150,7 @@ export default function Home() {
         <div className="section__number">02</div>
         <div className="store__visual">
           <div className="store__frame store__frame--main">
-            <img src="/images/armacao-editorial.png" alt="Fotografia editorial de uma armação sobre uma superfície de madeira" />
+            <img src="/images/entrada-loja-real.png" alt="Entrada real da Fábio Ótica, com portas de vidro, mobiliário em madeira e identidade visual dourada" />
           </div>
           <div className="store__frame store__frame--secondary">
             <img src="/images/ajuste-editorial.png" alt="Fotografia editorial mostrando o cuidado no ajuste de uma armação" />
