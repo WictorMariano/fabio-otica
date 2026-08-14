@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     description: "Uma nova experiência em ótica no Altiplano, em João Pessoa.",
     images: ["/og.png"],
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
