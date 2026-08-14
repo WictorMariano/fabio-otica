@@ -307,7 +307,14 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <img className="hero__image" src="/images/hero-oculos.png" alt="Armação tartaruga da Fábio Ótica sobre o balcão da loja, com a marca ao fundo" />
+        <img
+          className="hero__image"
+          src="/images/hero-oculos.png"
+          alt="Armação tartaruga da Fábio Ótica sobre o balcão da loja, com a marca ao fundo"
+          width={1024}
+          height={800}
+          fetchPriority="high"
+        />
       </section>
 
       <section className="about" id="sobre" aria-labelledby="about-title">
