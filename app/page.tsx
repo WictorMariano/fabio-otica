@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import ImageStreamHero from "@/components/ImageStreamHero";
+import { BrandButton, BrandLink } from "@/components/BrandButton";
 import {
   aboutImage,
   featuredItems,
@@ -336,9 +337,9 @@ export default function Home() {
             Armações selecionadas e lentes modernas para transformar conforto, visão e personalidade.
           </p>
           <div className="hero__actions">
-            <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
+            <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
               Agendar atendimento <span aria-hidden="true">→</span>
-            </a>
+            </BrandLink>
             <a className="hero__play" href="#loja">
               <span className="hero__play-icon" aria-hidden="true">▶</span>
               Conhecer a loja
@@ -383,9 +384,9 @@ export default function Home() {
               <p>São anos escolhendo armações, ajustando lentes e acompanhando cada cliente até o detalhe final.</p>
               <blockquote>“Cada atendimento começa pela escuta.”</blockquote>
             </div>
-            <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
+            <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
               Agendar atendimento <span aria-hidden="true">→</span>
-            </a>
+            </BrandLink>
           </div>
           <div className="about__facts" aria-label="Diferenciais">
             <span>15 anos de experiência</span>
@@ -416,14 +417,13 @@ export default function Home() {
               <em>e autenticidade.</em>
             </h2>
             <p>Uma curadoria de armações escolhidas para unir conforto, personalidade e excelência em cada detalhe.</p>
-            <a
-              className="button"
+            <BrandLink
               href={whatsappUrl("Olá, Fábio Ótica! Quero conhecer a coleção de óculos.")}
               target="_blank"
               rel="noreferrer"
             >
               Conhecer coleção <span aria-hidden="true">→</span>
-            </a>
+            </BrandLink>
           </div>
 
           <div className="featured__showcase">
@@ -505,9 +505,9 @@ export default function Home() {
               <h3>Visita em domicílio</h3>
               <p className="service-card__slogan">Seu atendimento, no conforto da sua casa.</p>
               <p>Levamos uma seleção de armações até você para uma escolha tranquila, exclusiva e personalizada.</p>
-              <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule("visita"); }}>
+              <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule("visita"); }}>
                 Agendar visita <span aria-hidden="true">→</span>
-              </a>
+              </BrandLink>
             </div>
           </article>
           <article className="service-card">
@@ -518,9 +518,9 @@ export default function Home() {
               <h3>Atendimento na loja</h3>
               <p className="service-card__slogan">Conheça de perto cada detalhe.</p>
               <p>Experimente nossas coleções com calma e receba orientação especializada em um ambiente pensado para você.</p>
-              <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule("loja"); }}>
+              <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule("loja"); }}>
                 Agendar na loja <span aria-hidden="true">→</span>
-              </a>
+              </BrandLink>
             </div>
           </article>
         </div>
@@ -536,9 +536,9 @@ export default function Home() {
           <p className="eyebrow light">Como funciona</p>
           <h2>Do primeiro encontro<br />à entrega, <em>no seu ritmo.</em></h2>
           <p>Três etapas simples, com o cuidado Fábio Ótica em cada uma delas — na loja ou onde você estiver.</p>
-          <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
+          <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
             Começar agora <span aria-hidden="true">→</span>
-          </a>
+          </BrandLink>
         </div>
         <ol className="process__list">
           <li className="process-card">
@@ -621,9 +621,9 @@ export default function Home() {
             <li><span aria-hidden="true"><IconFrames /></span> Exposição pensada para facilitar sua escolha</li>
             <li><span aria-hidden="true"><IconService /></span> Atendimento próximo, no seu tempo</li>
           </ul>
-          <a className="button" href={mapsUrl} target="_blank" rel="noreferrer">
+          <BrandLink href={mapsUrl} target="_blank" rel="noreferrer">
             Visite a nossa loja <span aria-hidden="true">→</span>
-          </a>
+          </BrandLink>
         </div>
       </section>
 
@@ -637,9 +637,9 @@ export default function Home() {
               <em>a Fábio Ótica.</em>
             </h2>
             <p>Um ambiente pensado para você experimentar, comparar e escolher com calma — do balcão aos expositores.</p>
-            <a className="button" href={mapsUrl} target="_blank" rel="noreferrer">
+            <BrandLink href={mapsUrl} target="_blank" rel="noreferrer">
               Visitar a loja <span aria-hidden="true">→</span>
-            </a>
+            </BrandLink>
           </div>
         </ImageStreamHero>
       </section>
@@ -679,9 +679,9 @@ export default function Home() {
             </div>
           </div>
           <div className="testimonials__actions">
-            <a className="button" href={googleReviewsUrl} target="_blank" rel="noreferrer">
+            <BrandLink href={googleReviewsUrl} target="_blank" rel="noreferrer">
               Ver avaliações no Google <span aria-hidden="true">→</span>
-            </a>
+            </BrandLink>
             <a className="line-link line-link--light" href={mapsUrl} target="_blank" rel="noreferrer">Avaliar no Google <Arrow /></a>
           </div>
         </div>
@@ -709,12 +709,12 @@ export default function Home() {
             <div><small>INSTAGRAM</small><p>@fabiootica_jp</p></div>
           </div>
           <div className="contact__actions">
-            <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
+            <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
               Agendar atendimento <span aria-hidden="true">→</span>
-            </a>
-            <a className="button" href={whatsappUrl("Olá, Fábio Ótica! Gostaria de atendimento.")} target="_blank" rel="noreferrer">
+            </BrandLink>
+            <BrandLink href={whatsappUrl("Olá, Fábio Ótica! Gostaria de atendimento.")} target="_blank" rel="noreferrer">
               <IconWhatsApp /> WhatsApp
-            </a>
+            </BrandLink>
             <a className="line-link" href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a>
           </div>
         </div>
@@ -730,9 +730,9 @@ export default function Home() {
             Novidades, lançamentos e bastidores do atendimento. Siga a Fábio Ótica no Instagram e fique por dentro de tudo primeiro.
           </p>
           <div className="social__actions">
-            <a className="button" href={instagramUrl} target="_blank" rel="noreferrer">
+            <BrandLink href={instagramUrl} target="_blank" rel="noreferrer">
               <IconInstagram /> Seguir no Instagram
-            </a>
+            </BrandLink>
             <a className="line-link line-link--light" href={instagramUrl} target="_blank" rel="noreferrer">@fabiootica_jp <Arrow /></a>
           </div>
         </div>
@@ -831,9 +831,9 @@ export default function Home() {
                   </label>
                 ) : null}
 
-                <button type="button" className="button scheduler__send" disabled={!canSend} onClick={sendToWhatsApp}>
+                <BrandButton type="button" className="scheduler__send" disabled={!canSend} onClick={sendToWhatsApp}>
                   Confirmar
-                </button>
+                </BrandButton>
                 {!canSend ? (
                   <p className="scheduler__hint">Escolha data e horário para continuar.</p>
                 ) : null}

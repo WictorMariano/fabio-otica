@@ -39,24 +39,100 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .hero__lead { max-width:430px; color:#c9c0b5; font-size:15px; font-weight:300; line-height:1.75; margin:28px 0 34px; }
 .hero__actions { display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
 .button {
+  position:relative;
   min-height:52px;
-  padding:0 28px;
+  padding:14px 36px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:14px;
-  border:1px solid transparent;
-  border-radius:999px;
+  gap:12px;
+  overflow:visible;
+  isolation:isolate;
+  border:1px solid #d4a86a;
+  border-radius:8px;
   font-size:10px;
   font-weight:600;
   letter-spacing:.15em;
   text-transform:uppercase;
-  background:linear-gradient(145deg,var(--gold-light),var(--gold));
+  background:linear-gradient(145deg,#e8c48a,#c99952);
   color:#1a120c;
-  box-shadow:0 12px 32px rgba(var(--gold-rgb),.32);
-  transition:transform .25s,background .25s;
+  filter:drop-shadow(2px 2px 4px rgba(0,0,0,.18));
+  box-shadow:none;
+  transition:border-color .25s, background .25s, transform .25s, filter .25s;
 }
-.button:hover { transform:translateY(-2px); background:var(--gold-light); }
+.button__label {
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+.button__leaf {
+  position:absolute;
+  z-index:2;
+  pointer-events:none;
+  line-height:0;
+  filter:drop-shadow(1px 2px 2px rgba(0,0,0,.28));
+  transition:transform .5s ease-in-out;
+}
+.button__leaf svg {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.button__leaf path { fill:#5a4024; }
+.button__leaf--1 {
+  top:-2px;
+  right:6px;
+  width:22px;
+  transform-origin:0 0;
+  transform:rotate(10deg);
+}
+.button__leaf--2 {
+  top:-2px;
+  left:22px;
+  width:11px;
+  transform-origin:50% 0;
+  transform:rotate(10deg);
+}
+.button__leaf--3 {
+  top:-2px;
+  left:2px;
+  width:16px;
+  transform-origin:50% 0;
+  transform:rotate(-5deg);
+}
+.button:hover {
+  border-color:#c99952;
+  background:linear-gradient(85deg,#f0d4a0,#e5bd7a,#d4a86a,#e8c48a,#c99952);
+  background-size:200% 200%;
+  animation:button-wind 2s ease-in-out infinite;
+  transform:translateY(-1px);
+  filter:drop-shadow(2px 4px 8px rgba(var(--gold-rgb),.35));
+}
+.button:hover .button__leaf--1 { animation:button-leaf-1 3s cubic-bezier(.52,0,.58,1) infinite; }
+.button:hover .button__leaf--2 { animation:button-leaf-2 3s cubic-bezier(.52,0,.58,1) 1s infinite; }
+.button:hover .button__leaf--3 { animation:button-leaf-3 2s cubic-bezier(.52,0,.58,1) 1s infinite; }
+@keyframes button-wind {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+@keyframes button-leaf-1 {
+  0% { transform:rotate(10deg); }
+  50% { transform:rotate(-5deg); }
+  100% { transform:rotate(10deg); }
+}
+@keyframes button-leaf-2 {
+  0% { transform:rotate(0deg); }
+  50% { transform:rotate(15deg); }
+  100% { transform:rotate(0deg); }
+}
+@keyframes button-leaf-3 {
+  0% { transform:rotate(0deg); }
+  50% { transform:rotate(-5deg); }
+  100% { transform:rotate(0deg); }
+}
 .text-link,.line-link { font-size:10px; letter-spacing:.16em; text-transform:uppercase; display:inline-flex; align-items:center; gap:16px; }
 .hero__play { display:inline-flex; align-items:center; gap:14px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#ece6dc; }
 .hero__play-icon { width:44px; height:44px; border-radius:50%; border:1px solid rgba(var(--gold-rgb),.5); display:grid; place-items:center; color:var(--gold-light); font-size:11px; padding-left:2px; box-shadow:0 0 0 6px rgba(var(--gold-rgb),.06); }
@@ -594,7 +670,7 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 }
 .service-card .button {
   min-height:46px;
-  padding:0 24px;
+  padding:12px 24px;
   gap:10px;
   width:fit-content;
   font-size:9px;
@@ -1529,4 +1605,8 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .process__glow,
   .process-card__shine { animation:none; opacity:.55; }
   .process-card__shine { display:none; }
+  .button:hover { animation:none; }
+  .button:hover .button__leaf--1,
+  .button:hover .button__leaf--2,
+  .button:hover .button__leaf--3 { animation:none; }
 }
