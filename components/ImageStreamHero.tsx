@@ -63,44 +63,6 @@ export type ImageStreamHeroProps = {
   className?: string;
 };
 
-function StreamCard({
-  images,
-  startIndex,
-  stride,
-  className,
-  style,
-}: {
-  images: readonly StreamImage[];
-  startIndex: number;
-  stride: number;
-  className: string;
-  style: React.CSSProperties;
-}) {
-  const [index, setIndex] = React.useState(startIndex);
-  const img = images.length ? images[index % images.length] : undefined;
-
-  return (
-    <div
-      className={className}
-      style={style}
-      onAnimationIteration={() => {
-        if (images.length <= stride) return;
-        setIndex((current) => (current + stride) % images.length);
-      }}
-    >
-      {img ? (
-        <img
-          src={img.src}
-          alt={img.alt ?? ""}
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-        />
-      ) : null}
-    </div>
-  );
-}
-
 export function ImageStreamHero({
   images,
   cards,
@@ -117,15 +79,26 @@ export function ImageStreamHero({
   const left = `ish-l-${id}`;
   const card = `ish-c-${id}`;
 
+  // One entry per src — never show the same file twice in the corridor.
+  const uniqueImages = React.useMemo(() => {
+    const seen = new Set<string>();
+    return images.filter((image) => {
+      if (!image?.src || seen.has(image.src)) return false;
+      seen.add(image.src);
+      return true;
+    });
+  }, [images]);
+
   const p = React.useMemo(() => ({ ...PATH, ...path }), [path]);
 
-  const cardsPerRail = React.useMemo(() => {
-    const maxUnique = Math.max(1, Math.floor(images.length / 2));
-    const requested = cards ?? Math.min(14, Math.max(8, maxUnique));
-    return Math.min(requested, maxUnique);
-  }, [cards, images.length]);
+  // Split the curated set across both rails with no leftover reuse.
+  const rightCount = React.useMemo(() => {
+    if (uniqueImages.length === 0) return 0;
+    const maxPerRail = cards ?? Math.min(13, Math.ceil(uniqueImages.length / 2));
+    return Math.min(maxPerRail, Math.ceil(uniqueImages.length / 2));
+  }, [cards, uniqueImages.length]);
 
-  const stride = cardsPerRail * 2;
+  const leftCount = uniqueImages.length - rightCount;
 
   const css = React.useMemo(
     () =>
@@ -133,6 +106,11 @@ export function ImageStreamHero({
       `@media(prefers-reduced-motion:reduce){.${card}{animation-play-state:paused}}`,
     [right, left, card, p],
   );
+
+  const rails: Array<{ name: string; offset: number; count: number }> = [
+    { name: right, offset: 0, count: rightCount },
+    { name: left, offset: rightCount, count: leftCount },
+  ];
 
   return (
     <div
@@ -151,15 +129,12 @@ export function ImageStreamHero({
         }}
       >
         <div className="image-stream__rail">
-          {[right, left].map((name, rail) =>
-            Array.from({ length: cardsPerRail }, (_, i) => {
-              const startIndex = rail * cardsPerRail + i;
+          {rails.map(({ name, offset, count }) =>
+            Array.from({ length: count }, (_, i) => {
+              const img = uniqueImages[offset + i];
               return (
-                <StreamCard
+                <div
                   key={`${name}-${i}`}
-                  images={images}
-                  startIndex={startIndex}
-                  stride={stride}
                   className={cn("image-stream__card", card)}
                   style={{
                     top: `${axis}%`,
@@ -169,9 +144,19 @@ export function ImageStreamHero({
                     marginTop: `${-p.cardHeight / 2}cqw`,
                     borderRadius: `${p.cardRadius}cqw`,
                     animation: `${name} ${speed}s linear infinite`,
-                    animationDelay: `${-(i * speed) / cardsPerRail}s`,
+                    animationDelay: `${-(i * speed) / Math.max(count, 1)}s`,
                   }}
-                />
+                >
+                  {img ? (
+                    <img
+                      src={img.src}
+                      alt={img.alt ?? ""}
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                    />
+                  ) : null}
+                </div>
               );
             }),
           )}

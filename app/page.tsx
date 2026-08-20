@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import ImageStreamHero from "@/components/ImageStreamHero";
 import { BrandButton, BrandLink } from "@/components/BrandButton";
 import { ServiceLeafField } from "@/components/BrandLeaves";
+import CookieConsent from "@/components/CookieConsent";
 import {
   aboutImage,
   featuredItems,
@@ -61,7 +62,7 @@ function IconWhatsApp() {
 
 function Brand({ compact = false }: { compact?: boolean }) {
   return (
-    <a className={`brand ${compact ? "brand--compact" : ""}`} href="#inicio" aria-label="Fábio Ótica — início">
+    <a className={`brand ${compact ? "brand--compact" : ""}`} href="#inicio" aria-label="Fábio Ótica, início">
       <img src="/logo.png" alt="Ótica Fábio" />
     </a>
   );
@@ -389,14 +390,17 @@ export default function Home() {
           <div className="about__copy-body">
             <p className="eyebrow light">Nossa história</p>
             <h2 id="about-title">
-              <span>Quinze anos</span>
-              <span>dedicados</span>
-              <em>ao seu olhar.</em>
+              <span>Experiência no olhar.</span>
+              <em>Presença no atendimento.</em>
             </h2>
             <div className="about__copy-text">
-              <p>A Fábio Ótica é o encontro de uma trajetória de 15 anos em óptica com um espaço pensado para receber você com calma, precisão e estilo.</p>
-              <p>São anos escolhendo armações, ajustando lentes e acompanhando cada cliente até o detalhe final.</p>
-              <blockquote>“Cada atendimento começa pela escuta.”</blockquote>
+              <p>
+                A Fábio Ótica nasce de quinze anos dedicados à óptica em João&nbsp;Pessoa: escolha de armações, montagem de lentes e acompanhamento de perto, em um espaço pensado para receber com calma, precisão e&nbsp;estilo.
+              </p>
+              <p>
+                Aqui, cada atendimento une curadoria de marcas, orientação técnica e o tempo necessário para encontrar o par certo, na loja ou na visita em domicílio, até o ajuste final ficar exatamente como você&nbsp;precisa.
+              </p>
+              <blockquote>“Cada atendimento começa pela&nbsp;escuta.”</blockquote>
             </div>
             <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
               Agendar atendimento <span aria-hidden="true">→</span>
@@ -453,21 +457,20 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </div>
 
-          <div className="featured__benefits" aria-label="Diferenciais">
-            <span className="featured__shine" aria-hidden="true" />
-            <div className="featured__benefit">
-              <span className="featured__benefit-icon" aria-hidden="true"><IconFrames /></span>
-              <span>Armações<br />premium</span>
-            </div>
-            <div className="featured__benefit">
-              <span className="featured__benefit-icon" aria-hidden="true"><IconLenses /></span>
-              <span>Lentes de alta<br />performance</span>
-            </div>
-            <div className="featured__benefit">
-              <span className="featured__benefit-icon" aria-hidden="true"><IconService /></span>
-              <span>Atendimento<br />personalizado</span>
+            <div className="featured__benefits" aria-label="Diferenciais">
+              <div className="featured__benefit">
+                <span className="featured__benefit-icon" aria-hidden="true"><IconFrames /></span>
+                <span>Armações<br />premium</span>
+              </div>
+              <div className="featured__benefit">
+                <span className="featured__benefit-icon" aria-hidden="true"><IconLenses /></span>
+                <span>Lentes de alta<br />performance</span>
+              </div>
+              <div className="featured__benefit">
+                <span className="featured__benefit-icon" aria-hidden="true"><IconService /></span>
+                <span>Atendimento<br />personalizado</span>
+              </div>
             </div>
           </div>
         </div>
@@ -538,7 +541,7 @@ export default function Home() {
         <div className="process__heading">
           <p className="eyebrow light">Como funciona</p>
           <h2>Do primeiro encontro<br />à entrega, <em>no seu ritmo.</em></h2>
-          <p>Três etapas simples, com o cuidado Fábio Ótica em cada uma delas — na loja ou onde você estiver.</p>
+          <p>Três etapas simples, com o cuidado Fábio Ótica em cada uma delas, na loja ou onde você estiver.</p>
           <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
             Começar agora <span aria-hidden="true">→</span>
           </BrandLink>
@@ -563,7 +566,7 @@ export default function Home() {
             <div>
               <small>LABORATÓRIO</small>
               <h3>Precisão em cada lente</h3>
-              <p>Depois da escolha, as lentes são preparadas com o cuidado técnico que o seu olhar pede — receita, medidas e acabamento.</p>
+              <p>Depois da escolha, as lentes são preparadas com o cuidado técnico que o seu olhar pede: receita, medidas e acabamento.</p>
             </div>
           </li>
           <li className="process-card">
@@ -639,7 +642,7 @@ export default function Home() {
               <br />
               <em>a Fábio Ótica.</em>
             </h2>
-            <p>Um ambiente pensado para você experimentar, comparar e escolher com calma — do balcão aos expositores.</p>
+            <p>Um ambiente pensado para você experimentar, comparar e escolher com calma, do balcão aos expositores.</p>
             <BrandLink href={mapsUrl} target="_blank" rel="noreferrer">
               Visitar a loja <span aria-hidden="true">→</span>
             </BrandLink>
@@ -706,7 +709,7 @@ export default function Home() {
           <p className="eyebrow">Endereço e contato</p>
           <h2>Venha conhecer<br />seu novo <em>olhar.</em></h2>
           <div className="contact__details">
-            <div><small>ENDEREÇO</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104 · Altiplano · João Pessoa — PB</p></div>
+            <div><small>ENDEREÇO</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104, Altiplano, João Pessoa, PB</p></div>
             <div><small>REFERÊNCIA</small><p>Em frente ao Colégio Kairós</p></div>
             <div><small>WHATSAPP</small><p>(83) 99625-8437</p></div>
             <div><small>INSTAGRAM</small><p>@fabiootica_jp</p></div>
@@ -726,19 +729,6 @@ export default function Home() {
       <section className="social" id="redes">
         <span className="lux-ring lux-ring--tl" aria-hidden="true" />
         <span className="lux-ring lux-ring--br" aria-hidden="true" />
-        <div className="social__content">
-          <p className="eyebrow light">Redes sociais</p>
-          <h2>Acompanhe cada<br /><em>novo olhar.</em></h2>
-          <p className="social__lead">
-            Novidades, lançamentos e bastidores do atendimento. Siga a Fábio Ótica no Instagram e fique por dentro de tudo primeiro.
-          </p>
-          <div className="social__actions">
-            <BrandLink href={instagramUrl} target="_blank" rel="noreferrer">
-              <IconInstagram /> Seguir no Instagram
-            </BrandLink>
-            <a className="line-link line-link--light" href={instagramUrl} target="_blank" rel="noreferrer">@fabiootica_jp <Arrow /></a>
-          </div>
-        </div>
         <aside className="social__chips" aria-label="Outras redes">
           <a className="social-chip" href={whatsappOffersGroupUrl} target="_blank" rel="noreferrer">
             <span className="social-chip__icon" aria-hidden="true"><IconWhatsApp /></span>
@@ -776,6 +766,19 @@ export default function Home() {
             </span>
           </a>
         </aside>
+        <div className="social__content">
+          <p className="eyebrow light">Redes sociais</p>
+          <h2>Acompanhe cada<br /><em>novo olhar.</em></h2>
+          <p className="social__lead">
+            Novidades, lançamentos e bastidores do atendimento. Siga a Fábio Ótica no Instagram e fique por dentro de tudo primeiro.
+          </p>
+          <div className="social__actions">
+            <BrandLink href={instagramUrl} target="_blank" rel="noreferrer">
+              <IconInstagram /> Seguir no Instagram
+            </BrandLink>
+            <a className="line-link line-link--light" href={instagramUrl} target="_blank" rel="noreferrer">@fabiootica_jp <Arrow /></a>
+          </div>
+        </div>
         <div className="social__embed">
           <blockquote
             className="instagram-media"
@@ -790,7 +793,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer__brand"><Brand /><p>Visão, estilo e cuidado<br />em cada detalhe.</p></div>
         <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a></div>
-        <div className="footer__address"><small>VISITE-NOS</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104 · Altiplano · João Pessoa — PB</p><a href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a></div>
+        <div className="footer__address"><small>VISITE-NOS</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104, Altiplano, João Pessoa, PB</p><a href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a></div>
         <div className="footer__social">
           <small>SIGA A GENTE</small>
           <a className="footer__social-link" href={instagramUrl} target="_blank" rel="noreferrer">
@@ -809,7 +812,7 @@ export default function Home() {
           <button type="button" className="scheduler__backdrop" aria-label="Fechar agendamento" onClick={closeSchedule} />
           <div className="scheduler__panel">
             <div className="scheduler__top">
-              <p className="eyebrow">WhatsApp · (83) 99625-8437</p>
+              <p className="eyebrow">WhatsApp (83) 99625-8437</p>
               <button type="button" className="scheduler__close" onClick={closeSchedule} aria-label="Fechar">×</button>
             </div>
             <h2 id="scheduler-title">Agende seu atendimento</h2>
@@ -861,6 +864,7 @@ export default function Home() {
           </div>
         </div>
       ) : null}
+      <CookieConsent />
     </main>
   );
 }

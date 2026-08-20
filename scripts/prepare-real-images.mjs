@@ -32,7 +32,6 @@ const jobs = [
     ["google maps/04-variedade-de-armacoes.jpg", "store/04-armacoes.jpg"],
     ["google maps/05-visao-geral-da-loja.jpg", "store/05-visao-geral.jpg"],
     ["google maps/06-panorama-do-ambiente.jpg", "store/06-panorama.jpg"],
-    ["google maps/07-atendimento-personalizado.jpg", "store/07-atendimento.jpg"],
     ["google maps/08-cliente-em-atendimento.jpg", "store/08-cliente.jpg"],
     ["google maps/09-detalhe-das-armacoes.jpg", "store/09-detalhe.jpg"],
     ["google maps/10-oculos-esportivos-mormaii.jpg", "store/10-oculos-esportivos.jpg"],
@@ -45,56 +44,49 @@ const jobs = [
   { src: "fotos/foto-fabio-otica-053.jpg", dest: "featured/04-oculos-de-sol.jpg", preset: "featured" },
   { src: "fotos/foto-fabio-otica-052.jpg", dest: "featured/05-oculos-personalizados.jpg", preset: "featured" },
 
-  // Service cards
-  { src: "google maps/07-atendimento-personalizado.jpg", dest: "service/visita.jpg", preset: "service" },
+  // Service cards — visita usa asset editorial em /images/visita-domicilio.png
   { src: "google maps/05-visao-geral-da-loja.jpg", dest: "service/loja.jpg", preset: "service" },
 ];
 
 // About is curated separately in public/images/real/about/ — do not overwrite.
 
-// Gallery stream — all unique source photos (fotos 001–067 + google maps 01–10)
-const fotosDir = path.join(source, "fotos");
-const fotoFiles = (await fs.readdir(fotosDir))
+// Gallery stream — curated set only (imagens gerais 2/imagens da galeria)
+const galleryDir = path.join(source, "imagens da galeria");
+const galleryFiles = (await fs.readdir(galleryDir))
   .filter((name) => /\.jpe?g$/i.test(name))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-for (const name of fotoFiles) {
-  const match = name.match(/(\d+)/);
-  const n = match ? match[1].padStart(3, "0") : name;
+for (const name of galleryFiles) {
   jobs.push({
-    src: `fotos/${name}`,
-    dest: `stream/foto-${n}.jpg`,
+    src: `imagens da galeria/${name}`,
+    dest: `stream/${name}`,
     preset: "stream",
   });
 }
 
-const mapsExtras = [
-  ["google maps/01-fachada-fabio-otica.jpg", "stream/maps-01-fachada.jpg"],
-  ["google maps/02-entrada-da-loja.jpg", "stream/maps-02-entrada.jpg"],
-  ["google maps/03-recepcao-e-marca.jpg", "stream/maps-03-recepcao.jpg"],
-  ["google maps/04-variedade-de-armacoes.jpg", "stream/maps-04-armacoes.jpg"],
-  ["google maps/05-visao-geral-da-loja.jpg", "stream/maps-05-visao-geral.jpg"],
-  ["google maps/06-panorama-do-ambiente.jpg", "stream/maps-06-panorama.jpg"],
-  ["google maps/07-atendimento-personalizado.jpg", "stream/maps-07-atendimento.jpg"],
-  ["google maps/08-cliente-em-atendimento.jpg", "stream/maps-08-cliente.jpg"],
-  ["google maps/09-detalhe-das-armacoes.jpg", "stream/maps-09-detalhe.jpg"],
-  ["google maps/10-oculos-esportivos-mormaii.jpg", "stream/maps-10-oculos-esportivos.jpg"],
-];
-
-for (const [src, dest] of mapsExtras) {
-  jobs.push({ src, dest, preset: "stream" });
-}
-
-// Clear previous stream outputs so old short set does not linger
+// Clear previous stream outputs so old sets do not linger
 await fs.rm(path.join(output, "stream"), { recursive: true, force: true });
 await fs.mkdir(path.join(output, "stream"), { recursive: true });
 
 let totalBytes = 0;
 const streamManifest = [];
+const seenHashes = new Set();
+const { createHash } = await import("node:crypto");
 
 for (const job of jobs) {
   const input = path.join(source, job.src);
   const dest = path.join(output, job.dest);
+
+  if (job.dest.startsWith("stream/")) {
+    const bytes = await fs.readFile(input);
+    const hash = createHash("sha256").update(bytes).digest("hex");
+    if (seenHashes.has(hash)) {
+      console.log(`↷ skip duplicate ${job.dest}`);
+      continue;
+    }
+    seenHashes.add(hash);
+  }
+
   await cropResize(input, dest, presets[job.preset]);
   const stat = await fs.stat(dest);
   totalBytes += stat.size;
@@ -102,7 +94,7 @@ for (const job of jobs) {
   if (job.dest.startsWith("stream/")) {
     streamManifest.push({
       src: `/images/real/${job.dest.replace(/\\/g, "/")}`,
-      alt: `Fábio Ótica — ${path.basename(job.dest, ".jpg").replace(/-/g, " ")}`,
+      alt: `Fábio Ótica, ${path.basename(job.dest, ".jpg").replace(/^\d+-/, "").replace(/-/g, " ")}`,
     });
   }
 }

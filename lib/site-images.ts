@@ -29,7 +29,6 @@ export const spacePhotos: SiteImage[] = [
   { src: "/images/real/store/03-recepcao.jpg", alt: "Recepção da Fábio Ótica com a marca em destaque" },
   { src: "/images/real/store/04-armacoes.jpg", alt: "Variedade de armações expostas na loja" },
   { src: "/images/real/store/06-panorama.jpg", alt: "Panorama do ambiente da loja com expositores iluminados" },
-  { src: "/images/real/store/07-atendimento.jpg", alt: "Atendimento personalizado na Fábio Ótica" },
   { src: "/images/real/store/08-cliente.jpg", alt: "Cliente sendo atendida na loja" },
   { src: "/images/real/store/09-detalhe.jpg", alt: "Detalhe de armações premium em exposição" },
   { src: "/images/real/store/10-oculos-esportivos.jpg", alt: "Óculos esportivos Mormaii em exposição na loja" },

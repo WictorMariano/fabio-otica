@@ -2,311 +2,103 @@
 
 export const streamImages: Array<{ src: string; alt: string }> = [
   {
-    "src": "/images/real/stream/foto-001.jpg",
-    "alt": "Fábio Ótica — foto 001"
+    "src": "/images/real/stream/01-fachada.jpg",
+    "alt": "Fábio Ótica, fachada"
   },
   {
-    "src": "/images/real/stream/foto-002.jpg",
-    "alt": "Fábio Ótica — foto 002"
+    "src": "/images/real/stream/02-entrada.jpg",
+    "alt": "Fábio Ótica, entrada"
   },
   {
-    "src": "/images/real/stream/foto-003.jpg",
-    "alt": "Fábio Ótica — foto 003"
+    "src": "/images/real/stream/03-recepcao.jpg",
+    "alt": "Fábio Ótica, recepcao"
   },
   {
-    "src": "/images/real/stream/foto-004.jpg",
-    "alt": "Fábio Ótica — foto 004"
+    "src": "/images/real/stream/04-armacoes.jpg",
+    "alt": "Fábio Ótica, armacoes"
   },
   {
-    "src": "/images/real/stream/foto-005.jpg",
-    "alt": "Fábio Ótica — foto 005"
+    "src": "/images/real/stream/05-visao-geral.jpg",
+    "alt": "Fábio Ótica, visao geral"
   },
   {
-    "src": "/images/real/stream/foto-006.jpg",
-    "alt": "Fábio Ótica — foto 006"
+    "src": "/images/real/stream/06-panorama.jpg",
+    "alt": "Fábio Ótica, panorama"
   },
   {
-    "src": "/images/real/stream/foto-007.jpg",
-    "alt": "Fábio Ótica — foto 007"
+    "src": "/images/real/stream/07-cliente.jpg",
+    "alt": "Fábio Ótica, cliente"
   },
   {
-    "src": "/images/real/stream/foto-008.jpg",
-    "alt": "Fábio Ótica — foto 008"
+    "src": "/images/real/stream/08-detalhe-armacoes.jpg",
+    "alt": "Fábio Ótica, detalhe armacoes"
   },
   {
-    "src": "/images/real/stream/foto-009.jpg",
-    "alt": "Fábio Ótica — foto 009"
+    "src": "/images/real/stream/09-oculos-esportivos.jpg",
+    "alt": "Fábio Ótica, oculos esportivos"
   },
   {
-    "src": "/images/real/stream/foto-010.jpg",
-    "alt": "Fábio Ótica — foto 010"
+    "src": "/images/real/stream/10-expositor.jpg",
+    "alt": "Fábio Ótica, expositor"
   },
   {
-    "src": "/images/real/stream/foto-011.jpg",
-    "alt": "Fábio Ótica — foto 011"
+    "src": "/images/real/stream/11-colecao.jpg",
+    "alt": "Fábio Ótica, colecao"
   },
   {
-    "src": "/images/real/stream/foto-012.jpg",
-    "alt": "Fábio Ótica — foto 012"
+    "src": "/images/real/stream/12-armacao-destaque.jpg",
+    "alt": "Fábio Ótica, armacao destaque"
   },
   {
-    "src": "/images/real/stream/foto-013.jpg",
-    "alt": "Fábio Ótica — foto 013"
+    "src": "/images/real/stream/13-mostruario.jpg",
+    "alt": "Fábio Ótica, mostruario"
   },
   {
-    "src": "/images/real/stream/foto-014.jpg",
-    "alt": "Fábio Ótica — foto 014"
+    "src": "/images/real/stream/14-ambiente.jpg",
+    "alt": "Fábio Ótica, ambiente"
   },
   {
-    "src": "/images/real/stream/foto-015.jpg",
-    "alt": "Fábio Ótica — foto 015"
+    "src": "/images/real/stream/15-vitrine.jpg",
+    "alt": "Fábio Ótica, vitrine"
   },
   {
-    "src": "/images/real/stream/foto-016.jpg",
-    "alt": "Fábio Ótica — foto 016"
+    "src": "/images/real/stream/16-prateleira.jpg",
+    "alt": "Fábio Ótica, prateleira"
   },
   {
-    "src": "/images/real/stream/foto-017.jpg",
-    "alt": "Fábio Ótica — foto 017"
+    "src": "/images/real/stream/17-detalhe-lentes.jpg",
+    "alt": "Fábio Ótica, detalhe lentes"
   },
   {
-    "src": "/images/real/stream/foto-018.jpg",
-    "alt": "Fábio Ótica — foto 018"
+    "src": "/images/real/stream/18-selecao.jpg",
+    "alt": "Fábio Ótica, selecao"
   },
   {
-    "src": "/images/real/stream/foto-019.jpg",
-    "alt": "Fábio Ótica — foto 019"
+    "src": "/images/real/stream/19-atendimento.jpg",
+    "alt": "Fábio Ótica, atendimento"
   },
   {
-    "src": "/images/real/stream/foto-020.jpg",
-    "alt": "Fábio Ótica — foto 020"
+    "src": "/images/real/stream/20-consulta.jpg",
+    "alt": "Fábio Ótica, consulta"
   },
   {
-    "src": "/images/real/stream/foto-021.jpg",
-    "alt": "Fábio Ótica — foto 021"
+    "src": "/images/real/stream/21-personalizados.jpg",
+    "alt": "Fábio Ótica, personalizados"
   },
   {
-    "src": "/images/real/stream/foto-022.jpg",
-    "alt": "Fábio Ótica — foto 022"
+    "src": "/images/real/stream/22-oculos-sol.jpg",
+    "alt": "Fábio Ótica, oculos sol"
   },
   {
-    "src": "/images/real/stream/foto-023.jpg",
-    "alt": "Fábio Ótica — foto 023"
+    "src": "/images/real/stream/23-estilo.jpg",
+    "alt": "Fábio Ótica, estilo"
   },
   {
-    "src": "/images/real/stream/foto-024.jpg",
-    "alt": "Fábio Ótica — foto 024"
+    "src": "/images/real/stream/24-interior.jpg",
+    "alt": "Fábio Ótica, interior"
   },
   {
-    "src": "/images/real/stream/foto-025.jpg",
-    "alt": "Fábio Ótica — foto 025"
-  },
-  {
-    "src": "/images/real/stream/foto-026.jpg",
-    "alt": "Fábio Ótica — foto 026"
-  },
-  {
-    "src": "/images/real/stream/foto-027.jpg",
-    "alt": "Fábio Ótica — foto 027"
-  },
-  {
-    "src": "/images/real/stream/foto-028.jpg",
-    "alt": "Fábio Ótica — foto 028"
-  },
-  {
-    "src": "/images/real/stream/foto-029.jpg",
-    "alt": "Fábio Ótica — foto 029"
-  },
-  {
-    "src": "/images/real/stream/foto-030.jpg",
-    "alt": "Fábio Ótica — foto 030"
-  },
-  {
-    "src": "/images/real/stream/foto-031.jpg",
-    "alt": "Fábio Ótica — foto 031"
-  },
-  {
-    "src": "/images/real/stream/foto-032.jpg",
-    "alt": "Fábio Ótica — foto 032"
-  },
-  {
-    "src": "/images/real/stream/foto-033.jpg",
-    "alt": "Fábio Ótica — foto 033"
-  },
-  {
-    "src": "/images/real/stream/foto-034.jpg",
-    "alt": "Fábio Ótica — foto 034"
-  },
-  {
-    "src": "/images/real/stream/foto-035.jpg",
-    "alt": "Fábio Ótica — foto 035"
-  },
-  {
-    "src": "/images/real/stream/foto-036.jpg",
-    "alt": "Fábio Ótica — foto 036"
-  },
-  {
-    "src": "/images/real/stream/foto-037.jpg",
-    "alt": "Fábio Ótica — foto 037"
-  },
-  {
-    "src": "/images/real/stream/foto-038.jpg",
-    "alt": "Fábio Ótica — foto 038"
-  },
-  {
-    "src": "/images/real/stream/foto-039.jpg",
-    "alt": "Fábio Ótica — foto 039"
-  },
-  {
-    "src": "/images/real/stream/foto-040.jpg",
-    "alt": "Fábio Ótica — foto 040"
-  },
-  {
-    "src": "/images/real/stream/foto-041.jpg",
-    "alt": "Fábio Ótica — foto 041"
-  },
-  {
-    "src": "/images/real/stream/foto-042.jpg",
-    "alt": "Fábio Ótica — foto 042"
-  },
-  {
-    "src": "/images/real/stream/foto-043.jpg",
-    "alt": "Fábio Ótica — foto 043"
-  },
-  {
-    "src": "/images/real/stream/foto-044.jpg",
-    "alt": "Fábio Ótica — foto 044"
-  },
-  {
-    "src": "/images/real/stream/foto-045.jpg",
-    "alt": "Fábio Ótica — foto 045"
-  },
-  {
-    "src": "/images/real/stream/foto-046.jpg",
-    "alt": "Fábio Ótica — foto 046"
-  },
-  {
-    "src": "/images/real/stream/foto-047.jpg",
-    "alt": "Fábio Ótica — foto 047"
-  },
-  {
-    "src": "/images/real/stream/foto-048.jpg",
-    "alt": "Fábio Ótica — foto 048"
-  },
-  {
-    "src": "/images/real/stream/foto-049.jpg",
-    "alt": "Fábio Ótica — foto 049"
-  },
-  {
-    "src": "/images/real/stream/foto-050.jpg",
-    "alt": "Fábio Ótica — foto 050"
-  },
-  {
-    "src": "/images/real/stream/foto-051.jpg",
-    "alt": "Fábio Ótica — foto 051"
-  },
-  {
-    "src": "/images/real/stream/foto-052.jpg",
-    "alt": "Fábio Ótica — foto 052"
-  },
-  {
-    "src": "/images/real/stream/foto-053.jpg",
-    "alt": "Fábio Ótica — foto 053"
-  },
-  {
-    "src": "/images/real/stream/foto-054.jpg",
-    "alt": "Fábio Ótica — foto 054"
-  },
-  {
-    "src": "/images/real/stream/foto-055.jpg",
-    "alt": "Fábio Ótica — foto 055"
-  },
-  {
-    "src": "/images/real/stream/foto-056.jpg",
-    "alt": "Fábio Ótica — foto 056"
-  },
-  {
-    "src": "/images/real/stream/foto-057.jpg",
-    "alt": "Fábio Ótica — foto 057"
-  },
-  {
-    "src": "/images/real/stream/foto-058.jpg",
-    "alt": "Fábio Ótica — foto 058"
-  },
-  {
-    "src": "/images/real/stream/foto-059.jpg",
-    "alt": "Fábio Ótica — foto 059"
-  },
-  {
-    "src": "/images/real/stream/foto-060.jpg",
-    "alt": "Fábio Ótica — foto 060"
-  },
-  {
-    "src": "/images/real/stream/foto-061.jpg",
-    "alt": "Fábio Ótica — foto 061"
-  },
-  {
-    "src": "/images/real/stream/foto-062.jpg",
-    "alt": "Fábio Ótica — foto 062"
-  },
-  {
-    "src": "/images/real/stream/foto-063.jpg",
-    "alt": "Fábio Ótica — foto 063"
-  },
-  {
-    "src": "/images/real/stream/foto-064.jpg",
-    "alt": "Fábio Ótica — foto 064"
-  },
-  {
-    "src": "/images/real/stream/foto-065.jpg",
-    "alt": "Fábio Ótica — foto 065"
-  },
-  {
-    "src": "/images/real/stream/foto-066.jpg",
-    "alt": "Fábio Ótica — foto 066"
-  },
-  {
-    "src": "/images/real/stream/foto-067.jpg",
-    "alt": "Fábio Ótica — foto 067"
-  },
-  {
-    "src": "/images/real/stream/maps-01-fachada.jpg",
-    "alt": "Fábio Ótica — maps 01 fachada"
-  },
-  {
-    "src": "/images/real/stream/maps-02-entrada.jpg",
-    "alt": "Fábio Ótica — maps 02 entrada"
-  },
-  {
-    "src": "/images/real/stream/maps-03-recepcao.jpg",
-    "alt": "Fábio Ótica — maps 03 recepcao"
-  },
-  {
-    "src": "/images/real/stream/maps-04-armacoes.jpg",
-    "alt": "Fábio Ótica — maps 04 armacoes"
-  },
-  {
-    "src": "/images/real/stream/maps-05-visao-geral.jpg",
-    "alt": "Fábio Ótica — maps 05 visao geral"
-  },
-  {
-    "src": "/images/real/stream/maps-06-panorama.jpg",
-    "alt": "Fábio Ótica — maps 06 panorama"
-  },
-  {
-    "src": "/images/real/stream/maps-07-atendimento.jpg",
-    "alt": "Fábio Ótica — maps 07 atendimento"
-  },
-  {
-    "src": "/images/real/stream/maps-08-cliente.jpg",
-    "alt": "Fábio Ótica — maps 08 cliente"
-  },
-  {
-    "src": "/images/real/stream/maps-09-detalhe.jpg",
-    "alt": "Fábio Ótica — maps 09 detalhe"
-  },
-  {
-    "src": "/images/real/stream/maps-10-oculos-esportivos.jpg",
-    "alt": "Fábio Ótica — maps 10 oculos esportivos"
+    "src": "/images/real/stream/25-marca.jpg",
+    "alt": "Fábio Ótica, marca"
   }
 ];

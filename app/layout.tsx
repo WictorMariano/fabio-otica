@@ -1,36 +1,44 @@
 import type { Metadata } from "next";
+import {
+  siteAddress,
+  siteDescription,
+  siteInstagram,
+  siteName,
+  sitePhone,
+  siteTitle,
+  siteUrl,
+  siteWhatsApp,
+} from "@/lib/site-config";
 import "./globals.css";
 
-const siteUrl = "https://fabio-otica-altiplano.marianowictor.chatgpt.site";
-const siteName = "Fábio Ótica";
-const title = "Fábio Ótica | Óculos de grau, sol e atendimento em João Pessoa";
-const description =
-  "Ótica em João Pessoa com 15 anos de experiência. Armações selecionadas, lentes de alta performance, visita em domicílio e atendimento personalizado. Agende pelo WhatsApp.";
 const ogImage = {
   url: "/og.jpg",
   width: 1200,
   height: 630,
-  alt: "Armação tartaruga da Fábio Ótica sobre o balcão da loja",
+  alt: "Fábio Ótica — armação em destaque no hero do site",
   type: "image/jpeg",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: title,
+    default: siteTitle,
     template: `%s | ${siteName}`,
   },
-  description,
+  description: siteDescription,
   applicationName: siteName,
   keywords: [
     "Fábio Ótica",
     "ótica João Pessoa",
-    "óculos de grau João Pessoa",
-    "óculos de sol",
-    "lentes oftálmicas",
-    "visita em domicílio ótica",
     "ótica Altiplano",
+    "óculos de grau João Pessoa",
+    "óculos de sol João Pessoa",
+    "lentes oftálmicas",
+    "lentes de alta performance",
+    "visita em domicílio ótica",
     "armações premium",
+    "ótica João Pessoa WhatsApp",
+    "agendar ótica João Pessoa",
   ],
   authors: [{ name: siteName }],
   creator: siteName,
@@ -55,15 +63,15 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName,
-    title: "Fábio Ótica — Enxergue o mundo com o seu estilo",
-    description,
+    title: siteTitle,
+    description: siteDescription,
     images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fábio Ótica — Enxergue o mundo com o seu estilo",
-    description,
-    images: [ogImage],
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og.jpg"],
   },
   icons: {
     icon: [
@@ -78,30 +86,80 @@ export const metadata: Metadata = {
     email: false,
     address: true,
   },
+  other: {
+    "geo.region": "BR-PB",
+    "geo.placename": "João Pessoa",
+  },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Optician",
+  "@id": `${siteUrl}/#optician`,
   name: siteName,
-  image: `${siteUrl}/og.jpg`,
+  alternateName: "Fabio Otica",
+  image: [`${siteUrl}/og.jpg`, `${siteUrl}/images/hero-oculos.png`, `${siteUrl}/logo.png`],
   logo: `${siteUrl}/logo.png`,
   url: siteUrl,
-  telephone: "+55-83-99625-8437",
-  description,
+  telephone: sitePhone,
+  description: siteDescription,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rua Roberto Paulo Moreira Coutinho, 1960, Sala 104",
-    addressLocality: "João Pessoa",
-    addressRegion: "PB",
-    addressCountry: "BR",
+    streetAddress: siteAddress.street,
+    addressLocality: siteAddress.city,
+    addressRegion: siteAddress.region,
+    postalCode: siteAddress.postalCode,
+    addressCountry: siteAddress.country,
   },
-  areaServed: {
-    "@type": "City",
-    name: "João Pessoa",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -7.119495,
+    longitude: -34.845011,
   },
-  sameAs: ["https://www.instagram.com/fabiootica_jp/"],
+  areaServed: [
+    { "@type": "City", name: "João Pessoa" },
+    { "@type": "AdministrativeArea", name: "Paraíba" },
+  ],
+  sameAs: [siteInstagram],
   priceRange: "$$",
+  currenciesAccepted: "BRL",
+  paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${siteAddress.street}, ${siteAddress.neighborhood}, ${siteAddress.city} - ${siteAddress.region}`,
+  )}`,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: sitePhone,
+      contactType: "customer service",
+      availableLanguage: ["Portuguese"],
+      areaServed: "BR",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      url: siteWhatsApp,
+      availableLanguage: ["Portuguese"],
+    },
+  ],
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Atendimento na loja",
+        description: "Experimente armações com orientação especializada na Fábio Ótica.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Visita em domicílio",
+        description: "Seleção de armações levada até você, com atendimento personalizado.",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -109,6 +167,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="pt-BR">
       <head>
         <link rel="preload" as="image" href="/images/hero-oculos.png" />
+        <link rel="preload" as="image" href="/og.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
