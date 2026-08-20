@@ -572,7 +572,6 @@ export default function Home() {
           </div>
         </div>
         <div className="store__copy">
-          <p className="eyebrow">Nosso espaço</p>
           <h2>Criado para<br /><em>receber você.</em></h2>
           <p>Um ambiente elegante e acolhedor, preparado para que você possa conhecer, experimentar e escolher com tranquilidade.</p>
           <ul>
