@@ -9,7 +9,7 @@ export type FeaturedItem = SiteImage & {
 
 export const aboutImage: SiteImage = {
   src: "/images/real/about/atendimento.jpg",
-  alt: "Cliente em atendimento personalizado na Fábio Ótica",
+  alt: "Atendimento na Fábio Ótica: cliente sentada à mesa de consulta e profissional ao lado, com expositores de armações ao fundo",
 };
 
 export const serviceVisitImage: SiteImage = {
