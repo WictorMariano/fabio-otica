@@ -565,28 +565,77 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   74%,100% { transform:translateX(320%); opacity:0; }
 }
 
-.service { position:relative; overflow:hidden; padding:36px 6vw 80px; background:#f6f0e4; color:#2a2218; text-align:center; }
+.service {
+  position:relative;
+  overflow:hidden;
+  padding:36px 6vw 80px;
+  background:
+    radial-gradient(ellipse 70% 55% at 12% 18%,rgba(31,51,40,.1),transparent 58%),
+    radial-gradient(ellipse 60% 50% at 88% 12%,rgba(var(--gold-rgb),.18),transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 100%,rgba(var(--gold-rgb),.1),transparent 52%),
+    linear-gradient(165deg,#efe6d6 0%,#e7efe8 42%,#f3ebe0 100%);
+  color:#2a2218;
+  text-align:center;
+}
 .service__backdrop {
   position:absolute;
   inset:0;
   z-index:0;
-  background:
-    url("/images/service-bg.png") center top / cover no-repeat,
-    #f6f0e4;
-  opacity:.92;
   pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.35),transparent 42%),
+    radial-gradient(circle at 78% 70%,rgba(31,51,40,.06),transparent 46%);
+  opacity:1;
 }
-.service__glow { position:absolute; z-index:0; width:560px; height:560px; border-radius:50%; pointer-events:none; background:radial-gradient(circle,rgba(var(--gold-rgb),.28),transparent 68%); }
+.service__glow { position:absolute; z-index:0; width:560px; height:560px; border-radius:50%; pointer-events:none; background:radial-gradient(circle,rgba(var(--gold-rgb),.22),transparent 68%); }
 .service__glow--left { top:-240px; left:-90px; }
 .service__glow--right { top:-200px; right:-70px; }
 .service__bokeh { position:absolute; inset:0; z-index:0; pointer-events:none; background:
-  radial-gradient(circle at 10% 16%,rgba(var(--gold-rgb),.35) 0 5px,transparent 7px),
-  radial-gradient(circle at 18% 8%,rgba(var(--gold-rgb),.22) 0 3px,transparent 5px),
-  radial-gradient(circle at 28% 22%,rgba(255,244,180,.4) 0 4px,transparent 6px),
-  radial-gradient(circle at 76% 10%,rgba(var(--gold-rgb),.32) 0 6px,transparent 8px),
-  radial-gradient(circle at 88% 20%,rgba(var(--gold-rgb),.18) 0 3px,transparent 5px),
-  radial-gradient(circle at 92% 8%,rgba(255,244,180,.35) 0 4px,transparent 7px); }
-.service__curves { position:absolute; top:18px; left:-4%; width:108%; height:auto; z-index:0; pointer-events:none; }
+  radial-gradient(circle at 10% 16%,rgba(var(--gold-rgb),.28) 0 5px,transparent 7px),
+  radial-gradient(circle at 18% 8%,rgba(var(--gold-rgb),.18) 0 3px,transparent 5px),
+  radial-gradient(circle at 28% 22%,rgba(255,244,180,.32) 0 4px,transparent 6px),
+  radial-gradient(circle at 76% 10%,rgba(var(--gold-rgb),.26) 0 6px,transparent 8px),
+  radial-gradient(circle at 88% 20%,rgba(var(--gold-rgb),.14) 0 3px,transparent 5px),
+  radial-gradient(circle at 92% 8%,rgba(255,244,180,.28) 0 4px,transparent 7px); }
+.service__leaves {
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.service__leaf {
+  position:absolute;
+  line-height:0;
+  color:#5a4024;
+  opacity:.14;
+  filter:drop-shadow(0 10px 18px rgba(40,28,12,.12));
+  will-change:transform;
+}
+.service__leaf svg {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.service__leaf path { fill:currentColor; }
+.service__leaf--a { top:6%; left:3%; width:54px; color:#6b4e2e; animation:service-leaf-drift 14s ease-in-out infinite; }
+.service__leaf--b { top:12%; right:5%; width:42px; color:#3d5a46; opacity:.12; animation:service-leaf-sway 16s ease-in-out infinite; }
+.service__leaf--c { top:38%; left:1.5%; width:28px; opacity:.1; animation:service-leaf-drift 18s ease-in-out infinite reverse; }
+.service__leaf--d { top:28%; right:10%; width:70px; color:#7a5a34; opacity:.11; animation:service-leaf-sway 15s ease-in-out 1s infinite; }
+.service__leaf--e { top:58%; left:8%; width:48px; color:#2f4a38; opacity:.1; animation:service-leaf-drift 17s ease-in-out .8s infinite; }
+.service__leaf--f { top:62%; right:3%; width:34px; opacity:.12; animation:service-leaf-sway 13s ease-in-out infinite reverse; }
+.service__leaf--g { bottom:10%; left:18%; width:40px; color:#6b4e2e; opacity:.09; animation:service-leaf-drift 19s ease-in-out 1.4s infinite; }
+.service__leaf--h { bottom:16%; right:16%; width:58px; color:#3d5a46; opacity:.11; animation:service-leaf-sway 20s ease-in-out .6s infinite; }
+.service__leaf--i { top:8%; left:42%; width:24px; opacity:.08; animation:service-leaf-drift 12s ease-in-out infinite; }
+.service__leaf--j { bottom:28%; left:46%; width:36px; color:#7a5a34; opacity:.09; animation:service-leaf-sway 15s ease-in-out 2s infinite reverse; }
+@keyframes service-leaf-drift {
+  0%,100% { transform:translate3d(0,0,0) rotate(-6deg); }
+  50% { transform:translate3d(10px,-16px,0) rotate(8deg); }
+}
+@keyframes service-leaf-sway {
+  0%,100% { transform:translate3d(0,0,0) rotate(8deg); }
+  50% { transform:translate3d(-12px,14px,0) rotate(-10deg); }
+}
 .service .brands {
   position:relative;
   z-index:1;
@@ -1626,4 +1675,5 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .button:hover .button__leaf--1,
   .button:hover .button__leaf--2,
   .button:hover .button__leaf--3 { animation:none; }
+  .service__leaf { animation:none !important; }
 }

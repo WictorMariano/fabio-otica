@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import ImageStreamHero from "@/components/ImageStreamHero";
 import { BrandButton, BrandLink } from "@/components/BrandButton";
+import { ServiceLeafField } from "@/components/BrandLeaves";
 import {
   aboutImage,
   featuredItems,
@@ -477,18 +478,7 @@ export default function Home() {
         <div className="service__glow service__glow--left" />
         <div className="service__glow service__glow--right" />
         <div className="service__bokeh" aria-hidden="true" />
-        <svg className="service__curves" viewBox="0 0 1440 240" fill="none" aria-hidden="true">
-          <path d="M-40 170C180 40 420 210 720 90C980 -10 1220 150 1500 40" stroke="url(#service-gold)" strokeWidth="1.4" />
-          <path d="M-20 210C220 90 480 230 760 130C1040 30 1280 180 1520 80" stroke="url(#service-gold)" strokeWidth="1" opacity=".55" />
-          <defs>
-            <linearGradient id="service-gold" x1="0" y1="0" x2="1440" y2="0">
-              <stop stopColor="#c99952" stopOpacity="0" />
-              <stop offset=".2" stopColor="#c99952" stopOpacity=".7" />
-              <stop offset=".8" stopColor="#e5bd7a" stopOpacity=".7" />
-              <stop offset="1" stopColor="#c99952" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <ServiceLeafField />
         <div className="brands" aria-label="Só as melhores lentes">
           <p className="eyebrow">Só as melhores lentes</p>
           <div className="brands__viewport">
