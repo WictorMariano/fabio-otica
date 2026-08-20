@@ -723,6 +723,7 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .process h2,.store h2 { font-size:clamp(38px,4.4vw,64px); font-weight:500; line-height:.96; }
 .process h2 em { color:var(--gold); font-style:italic; }
 .process__heading { position:sticky; top:80px; align-self:start; z-index:1; }
+.process__heading .button { margin-top:8px; }
 .process__heading>p:last-of-type { color:#c9c0b5; max-width:440px; font-size:16px; line-height:1.9; margin:30px 0 34px; }
 .process__list { position:relative; z-index:1; list-style:none; margin:0; padding:0; }
 .process-card {
@@ -774,25 +775,6 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
     radial-gradient(circle at 88% 78%,rgba(var(--gold-rgb),.18),transparent 34%);
   transition:opacity .4s;
 }
-.process-card__shine {
-  position:absolute;
-  z-index:2;
-  top:0;
-  bottom:0;
-  left:-40%;
-  width:42%;
-  pointer-events:none;
-  background:linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255,255,255,.04) 34%,
-    rgba(255,236,200,.22) 50%,
-    rgba(255,255,255,.05) 66%,
-    transparent 100%
-  );
-  mix-blend-mode:screen;
-  animation:process-card-sheen 7.5s ease-in-out infinite;
-}
 @keyframes process-card-sheen {
   0%, 18% { transform:translateX(0); opacity:0; }
   28% { opacity:.85; }
@@ -812,8 +794,29 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .process-card:hover .process-card__step {
   text-shadow:0 0 18px rgba(var(--gold-rgb),.55);
 }
-.process-card>* { position:relative; z-index:1; }
-.process-card__shine { z-index:2; }
+.process-card > :not(.process-card__shine) {
+  position:relative;
+  z-index:1;
+}
+.process-card__shine {
+  position:absolute;
+  z-index:2;
+  top:0;
+  bottom:0;
+  left:-40%;
+  width:42%;
+  pointer-events:none;
+  background:linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,.04) 34%,
+    rgba(255,236,200,.22) 50%,
+    rgba(255,255,255,.05) 66%,
+    transparent 100%
+  );
+  mix-blend-mode:screen;
+  animation:process-card-sheen 7.5s ease-in-out infinite;
+}
 .process-card__step {
   color:var(--gold);
   font-family:"Cormorant Garamond",serif;
