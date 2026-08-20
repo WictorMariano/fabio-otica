@@ -53,21 +53,4 @@ export const featuredItems: FeaturedItem[] = [
   },
 ];
 
-export const streamImages: SiteImage[] = [
-  { src: "/images/real/stream/01-fachada.jpg", alt: "Fachada da Fábio Ótica" },
-  { src: "/images/real/stream/02-entrada.jpg", alt: "Entrada da loja" },
-  { src: "/images/real/stream/03-recepcao.jpg", alt: "Recepção e marca" },
-  { src: "/images/real/stream/04-armacoes.jpg", alt: "Variedade de armações" },
-  { src: "/images/real/stream/05-visao-geral.jpg", alt: "Visão geral da loja" },
-  { src: "/images/real/stream/06-panorama.jpg", alt: "Panorama do ambiente" },
-  { src: "/images/real/stream/07-atendimento.jpg", alt: "Atendimento personalizado" },
-  { src: "/images/real/stream/08-cliente.jpg", alt: "Cliente em atendimento" },
-  { src: "/images/real/stream/09-detalhe.jpg", alt: "Detalhe das armações" },
-  { src: "/images/real/stream/10-oculos-esportivos.jpg", alt: "Óculos esportivos Mormaii" },
-  { src: "/images/real/stream/11-expositor.jpg", alt: "Expositor de armações na loja" },
-  { src: "/images/real/stream/12-colecao.jpg", alt: "Coleção de óculos em exposição" },
-  { src: "/images/real/stream/13-ambiente.jpg", alt: "Ambiente acolhedor da loja" },
-  { src: "/images/real/stream/14-armacao.jpg", alt: "Armação em destaque no mostruário" },
-  { src: "/images/real/stream/15-mostruario.jpg", alt: "Mostruário com seleção de óculos" },
-  { src: "/images/real/stream/16-atendimento.jpg", alt: "Momento de atendimento na Fábio Ótica" },
-];
+export { streamImages } from "./stream-images.generated";

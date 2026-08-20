@@ -54,7 +54,7 @@ export type StreamImage = {
 };
 
 export type ImageStreamHeroProps = {
-  images: StreamImage[];
+  images: readonly StreamImage[];
   cards?: number;
   speed?: number;
   axis?: number;
@@ -63,10 +63,48 @@ export type ImageStreamHeroProps = {
   className?: string;
 };
 
+function StreamCard({
+  images,
+  startIndex,
+  stride,
+  className,
+  style,
+}: {
+  images: readonly StreamImage[];
+  startIndex: number;
+  stride: number;
+  className: string;
+  style: React.CSSProperties;
+}) {
+  const [index, setIndex] = React.useState(startIndex);
+  const img = images.length ? images[index % images.length] : undefined;
+
+  return (
+    <div
+      className={className}
+      style={style}
+      onAnimationIteration={() => {
+        if (images.length <= stride) return;
+        setIndex((current) => (current + stride) % images.length);
+      }}
+    >
+      {img ? (
+        <img
+          src={img.src}
+          alt={img.alt ?? ""}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+        />
+      ) : null}
+    </div>
+  );
+}
+
 export function ImageStreamHero({
   images,
-  cards = 9,
-  speed = 18,
+  cards,
+  speed = 22,
   axis = 55,
   path,
   children,
@@ -80,6 +118,14 @@ export function ImageStreamHero({
   const card = `ish-c-${id}`;
 
   const p = React.useMemo(() => ({ ...PATH, ...path }), [path]);
+
+  const cardsPerRail = React.useMemo(() => {
+    const maxUnique = Math.max(1, Math.floor(images.length / 2));
+    const requested = cards ?? Math.min(14, Math.max(8, maxUnique));
+    return Math.min(requested, maxUnique);
+  }, [cards, images.length]);
+
+  const stride = cardsPerRail * 2;
 
   const css = React.useMemo(
     () =>
@@ -105,12 +151,15 @@ export function ImageStreamHero({
         }}
       >
         <div className="image-stream__rail">
-          {[right, left].map((name) =>
-            Array.from({ length: cards }, (_, i) => {
-              const img = images[i % Math.max(images.length, 1)];
+          {[right, left].map((name, rail) =>
+            Array.from({ length: cardsPerRail }, (_, i) => {
+              const startIndex = rail * cardsPerRail + i;
               return (
-                <div
+                <StreamCard
                   key={`${name}-${i}`}
+                  images={images}
+                  startIndex={startIndex}
+                  stride={stride}
                   className={cn("image-stream__card", card)}
                   style={{
                     top: `${axis}%`,
@@ -120,19 +169,9 @@ export function ImageStreamHero({
                     marginTop: `${-p.cardHeight / 2}cqw`,
                     borderRadius: `${p.cardRadius}cqw`,
                     animation: `${name} ${speed}s linear infinite`,
-                    animationDelay: `${-(i * speed) / cards}s`,
+                    animationDelay: `${-(i * speed) / cardsPerRail}s`,
                   }}
-                >
-                  {img ? (
-                    <img
-                      src={img.src}
-                      alt={img.alt ?? ""}
-                      loading="lazy"
-                      decoding="async"
-                      draggable={false}
-                    />
-                  ) : null}
-                </div>
+                />
               );
             }),
           )}

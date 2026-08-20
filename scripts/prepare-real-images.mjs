@@ -11,7 +11,7 @@ const presets = {
   featured: { width: 800, height: 1000 },
   service: { width: 1200, height: 750 },
   about: { width: 900, height: 900 },
-  stream: { width: 800, height: 1000 },
+  stream: { width: 720, height: 900 },
 };
 
 async function cropResize(input, dest, { width, height }) {
@@ -19,7 +19,7 @@ async function cropResize(input, dest, { width, height }) {
   await sharp(input)
     .rotate()
     .resize(width, height, { fit: "cover", position: "centre" })
-    .jpeg({ quality: 82, mozjpeg: true })
+    .jpeg({ quality: 78, mozjpeg: true })
     .toFile(dest);
 }
 
@@ -42,36 +42,55 @@ const jobs = [
   { src: "google maps/04-variedade-de-armacoes.jpg", dest: "featured/01-variedade-armacoes.jpg", preset: "featured" },
   { src: "google maps/09-detalhe-das-armacoes.jpg", dest: "featured/02-detalhe-armacoes.jpg", preset: "featured" },
   { src: "google maps/10-oculos-esportivos-mormaii.jpg", dest: "featured/03-oculos-esportivos.jpg", preset: "featured" },
+  { src: "fotos/foto-fabio-otica-053.jpg", dest: "featured/04-oculos-de-sol.jpg", preset: "featured" },
+  { src: "fotos/foto-fabio-otica-052.jpg", dest: "featured/05-oculos-personalizados.jpg", preset: "featured" },
 
   // Service cards
   { src: "google maps/07-atendimento-personalizado.jpg", dest: "service/visita.jpg", preset: "service" },
   { src: "google maps/05-visao-geral-da-loja.jpg", dest: "service/loja.jpg", preset: "service" },
-
-  // About
-  { src: "google maps/08-cliente-em-atendimento.jpg", dest: "about/atendimento.jpg", preset: "about" },
-
-  // ImageStream corridor
-  ...[
-    ["google maps/01-fachada-fabio-otica.jpg", "stream/01-fachada.jpg"],
-    ["google maps/02-entrada-da-loja.jpg", "stream/02-entrada.jpg"],
-    ["google maps/03-recepcao-e-marca.jpg", "stream/03-recepcao.jpg"],
-    ["google maps/04-variedade-de-armacoes.jpg", "stream/04-armacoes.jpg"],
-    ["google maps/05-visao-geral-da-loja.jpg", "stream/05-visao-geral.jpg"],
-    ["google maps/06-panorama-do-ambiente.jpg", "stream/06-panorama.jpg"],
-    ["google maps/07-atendimento-personalizado.jpg", "stream/07-atendimento.jpg"],
-    ["google maps/08-cliente-em-atendimento.jpg", "stream/08-cliente.jpg"],
-    ["google maps/09-detalhe-das-armacoes.jpg", "stream/09-detalhe.jpg"],
-    ["google maps/10-oculos-esportivos-mormaii.jpg", "stream/10-oculos-esportivos.jpg"],
-    ["google maps/foto-fabio-otica-011.jpg", "stream/11-expositor.jpg"],
-    ["google maps/foto-fabio-otica-040.jpg", "stream/12-colecao.jpg"],
-    ["google maps/foto-fabio-otica-052.jpg", "stream/13-ambiente.jpg"],
-    ["fotos/foto-fabio-otica-015.jpg", "stream/14-armacao.jpg"],
-    ["fotos/foto-fabio-otica-033.jpg", "stream/15-mostruario.jpg"],
-    ["fotos/foto-fabio-otica-048.jpg", "stream/16-atendimento.jpg"],
-  ].map(([src, dest]) => ({ src, dest, preset: "stream" })),
 ];
 
+// About is curated separately in public/images/real/about/ — do not overwrite.
+
+// Gallery stream — all unique source photos (fotos 001–067 + google maps 01–10)
+const fotosDir = path.join(source, "fotos");
+const fotoFiles = (await fs.readdir(fotosDir))
+  .filter((name) => /\.jpe?g$/i.test(name))
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+for (const name of fotoFiles) {
+  const match = name.match(/(\d+)/);
+  const n = match ? match[1].padStart(3, "0") : name;
+  jobs.push({
+    src: `fotos/${name}`,
+    dest: `stream/foto-${n}.jpg`,
+    preset: "stream",
+  });
+}
+
+const mapsExtras = [
+  ["google maps/01-fachada-fabio-otica.jpg", "stream/maps-01-fachada.jpg"],
+  ["google maps/02-entrada-da-loja.jpg", "stream/maps-02-entrada.jpg"],
+  ["google maps/03-recepcao-e-marca.jpg", "stream/maps-03-recepcao.jpg"],
+  ["google maps/04-variedade-de-armacoes.jpg", "stream/maps-04-armacoes.jpg"],
+  ["google maps/05-visao-geral-da-loja.jpg", "stream/maps-05-visao-geral.jpg"],
+  ["google maps/06-panorama-do-ambiente.jpg", "stream/maps-06-panorama.jpg"],
+  ["google maps/07-atendimento-personalizado.jpg", "stream/maps-07-atendimento.jpg"],
+  ["google maps/08-cliente-em-atendimento.jpg", "stream/maps-08-cliente.jpg"],
+  ["google maps/09-detalhe-das-armacoes.jpg", "stream/maps-09-detalhe.jpg"],
+  ["google maps/10-oculos-esportivos-mormaii.jpg", "stream/maps-10-oculos-esportivos.jpg"],
+];
+
+for (const [src, dest] of mapsExtras) {
+  jobs.push({ src, dest, preset: "stream" });
+}
+
+// Clear previous stream outputs so old short set does not linger
+await fs.rm(path.join(output, "stream"), { recursive: true, force: true });
+await fs.mkdir(path.join(output, "stream"), { recursive: true });
+
 let totalBytes = 0;
+const streamManifest = [];
 
 for (const job of jobs) {
   const input = path.join(source, job.src);
@@ -80,6 +99,20 @@ for (const job of jobs) {
   const stat = await fs.stat(dest);
   totalBytes += stat.size;
   console.log(`✓ ${job.dest} (${Math.round(stat.size / 1024)} KB)`);
+  if (job.dest.startsWith("stream/")) {
+    streamManifest.push({
+      src: `/images/real/${job.dest.replace(/\\/g, "/")}`,
+      alt: `Fábio Ótica — ${path.basename(job.dest, ".jpg").replace(/-/g, " ")}`,
+    });
+  }
 }
+
+const manifestPath = path.join(root, "lib", "stream-images.generated.ts");
+const manifestBody = `/* Auto-generated by scripts/prepare-real-images.mjs — do not edit by hand */
+
+export const streamImages: Array<{ src: string; alt: string }> = ${JSON.stringify(streamManifest, null, 2)};
+`;
+await fs.writeFile(manifestPath, manifestBody, "utf8");
+console.log(`✓ wrote ${manifestPath} (${streamManifest.length} stream images)`);
 
 console.log(`\nDone: ${jobs.length} images, ${(totalBytes / 1024 / 1024).toFixed(2)} MB total`);
