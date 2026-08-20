@@ -21,7 +21,9 @@ const instagramUrl = "https://www.instagram.com/fabiootica_jp/";
 const facebookUrl = "https://www.facebook.com/search/top?q=F%C3%A1bio%20%C3%93tica%20Jo%C3%A3o%20Pessoa";
 const youtubeUrl = "https://www.youtube.com/results?search_query=F%C3%A1bio+%C3%93tica+Jo%C3%A3o+Pessoa";
 const tiktokUrl = "https://www.tiktok.com/search?q=F%C3%A1bio%20%C3%93tica%20Jo%C3%A3o%20Pessoa";
+const kwaiUrl = "https://www.kwai.com/search/video?q=F%C3%A1bio%20%C3%93tica%20Jo%C3%A3o%20Pessoa";
 const whatsappNumber = "5583996258437";
+const whatsappOffersGroupUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, Fábio Ótica! Quero entrar no grupo de ofertas relâmpago.")}`;
 const timeSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
 
 type ScheduleIntent = "visita" | "loja";
@@ -103,6 +105,17 @@ function IconTikTok() {
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <path
         d="M20.4 6.2c.8 2.4 2.5 4.1 4.9 4.8v3.1c-1.7-.1-3.3-.6-4.7-1.5v6.7c0 4.2-3.4 7.5-7.6 7.5S5.4 23.5 5.4 19.3s3.4-7.5 7.6-7.5c.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-2.4 0-4.3 1.9-4.3 4.3s1.9 4.3 4.3 4.3 4.3-1.9 4.3-4.3V6.2h3.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function IconKwai() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M10.2 7.2h3.4l4.2 6.4 2.1-2.6V7.2h3.3v17.6h-3.3v-6.3l-2.6 3.3-3.5 4.7h-3.7l5.1-6.7-4.9-7.6Z"
         fill="currentColor"
       />
     </svg>
@@ -737,6 +750,13 @@ export default function Home() {
           </div>
         </div>
         <aside className="social__chips" aria-label="Outras redes">
+          <a className="social-chip" href={whatsappOffersGroupUrl} target="_blank" rel="noreferrer">
+            <span className="social-chip__icon" aria-hidden="true"><IconWhatsApp /></span>
+            <span className="social-chip__copy">
+              <strong>WhatsApp</strong>
+              <em>Ofertas relâmpago</em>
+            </span>
+          </a>
           <a className="social-chip" href={youtubeUrl} target="_blank" rel="noreferrer">
             <span className="social-chip__icon" aria-hidden="true"><IconYouTube /></span>
             <span className="social-chip__copy">
@@ -756,6 +776,13 @@ export default function Home() {
             <span className="social-chip__copy">
               <strong>TikTok</strong>
               <em>Looks e tendências</em>
+            </span>
+          </a>
+          <a className="social-chip" href={kwaiUrl} target="_blank" rel="noreferrer">
+            <span className="social-chip__icon" aria-hidden="true"><IconKwai /></span>
+            <span className="social-chip__copy">
+              <strong>Kwai</strong>
+              <em>Conteúdo e promoções</em>
             </span>
           </a>
         </aside>

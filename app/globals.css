@@ -1269,17 +1269,17 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 .social__chips {
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:10px;
   justify-self:center;
   width:100%;
-  max-width:240px;
+  max-width:250px;
 }
 .social-chip {
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:14px 16px;
-  border-radius:999px;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:14px;
   color:#f6f0e5;
   background:linear-gradient(155deg,rgba(255,255,255,.14),rgba(212,180,120,.08) 50%,rgba(255,255,255,.04));
   backdrop-filter:blur(18px) saturate(1.2);
@@ -1300,8 +1300,8 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 }
 .social-chip__icon {
   flex:0 0 auto;
-  width:42px;
-  height:42px;
+  width:38px;
+  height:38px;
   display:grid;
   place-items:center;
   border-radius:50%;
@@ -1309,17 +1309,17 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   background:rgba(var(--gold-rgb),.12);
   border:1px solid rgba(var(--gold-rgb),.45);
 }
-.social-chip__icon svg { width:20px; height:20px; }
-.social-chip__copy { min-width:0; display:flex; flex-direction:column; gap:3px; }
+.social-chip__icon svg { width:18px; height:18px; }
+.social-chip__copy { min-width:0; display:flex; flex-direction:column; gap:2px; }
 .social-chip__copy strong {
-  font-size:13px;
+  font-size:12px;
   font-weight:600;
   letter-spacing:.04em;
   color:#f6f0e5;
 }
 .social-chip__copy em {
   font-style:normal;
-  font-size:10px;
+  font-size:9px;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:rgba(201,153,82,.9);
