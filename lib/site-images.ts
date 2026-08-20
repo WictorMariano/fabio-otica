@@ -23,11 +23,11 @@ export const serviceStoreImage: SiteImage = {
 };
 
 export const spacePhotos: SiteImage[] = [
+  { src: "/images/real/store/05-visao-geral.jpg", alt: "Visão geral do interior da Fábio Ótica, com recepção, mesas de atendimento e expositores" },
   { src: "/images/real/store/01-fachada.jpg", alt: "Fachada da Fábio Ótica em João Pessoa, com identidade visual dourada" },
   { src: "/images/real/store/02-entrada.jpg", alt: "Entrada da loja com portas de vidro e iluminação acolhedora" },
   { src: "/images/real/store/03-recepcao.jpg", alt: "Recepção da Fábio Ótica com a marca em destaque" },
   { src: "/images/real/store/04-armacoes.jpg", alt: "Variedade de armações expostas na loja" },
-  { src: "/images/real/store/05-visao-geral.jpg", alt: "Visão geral do interior da Fábio Ótica" },
   { src: "/images/real/store/06-panorama.jpg", alt: "Panorama do ambiente da loja com expositores iluminados" },
   { src: "/images/real/store/07-atendimento.jpg", alt: "Atendimento personalizado na Fábio Ótica" },
   { src: "/images/real/store/08-cliente.jpg", alt: "Cliente sendo atendida na loja" },

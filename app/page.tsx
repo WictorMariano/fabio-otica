@@ -589,22 +589,15 @@ export default function Home() {
       <section className="gallery-stream" id="galeria" aria-labelledby="gallery-title">
         <ImageStreamHero images={streamImages} className="gallery-stream__hero">
           <div className="gallery-stream__content">
-            <p className="eyebrow light">Na Fábio Ótica</p>
+            <p className="eyebrow light">Nosso espaço</p>
             <h2 id="gallery-title">
-              Momentos reais,
+              Venha conhecer
               <br />
-              <em>no seu ritmo.</em>
+              <em>a Fábio Ótica.</em>
             </h2>
-            <p>Da escolha da armação ao ajuste final — imagens do nosso dia a dia na loja.</p>
-            <a
-              className="button"
-              href="#agendar"
-              onClick={(event) => {
-                event.preventDefault();
-                openSchedule();
-              }}
-            >
-              Agendar visita <span aria-hidden="true">→</span>
+            <p>Um ambiente pensado para você experimentar, comparar e escolher com calma — do balcão aos expositores.</p>
+            <a className="button" href={mapsUrl} target="_blank" rel="noreferrer">
+              Visitar a loja <span aria-hidden="true">→</span>
             </a>
           </div>
         </ImageStreamHero>
