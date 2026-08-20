@@ -38,18 +38,18 @@ export const spacePhotos: SiteImage[] = [
 export const featuredItems: FeaturedItem[] = [
   {
     title: "Óculos de grau",
-    src: "/images/real/featured/01-variedade-armacoes.jpg",
-    alt: "Variedade de armações de grau expostas na Fábio Ótica",
+    src: "/images/real/featured/02-detalhe-armacoes.jpg",
+    alt: "Detalhe de armações de grau em exposição na Fábio Ótica",
   },
   {
     title: "Óculos de sol",
-    src: "/images/real/featured/02-detalhe-armacoes.jpg",
-    alt: "Detalhe de armações de sol em exposição na loja",
+    src: "/images/real/featured/04-oculos-de-sol.jpg",
+    alt: "Óculos de sol em exposição na Fábio Ótica, com destaque para modelos Louge",
   },
   {
     title: "Óculos personalizados",
-    src: "/images/real/featured/03-oculos-esportivos.jpg",
-    alt: "Óculos esportivos Mormaii disponíveis na Fábio Ótica",
+    src: "/images/real/featured/01-variedade-armacoes.jpg",
+    alt: "Seleção variada de armações para montagem personalizada na Fábio Ótica",
   },
 ];
 
