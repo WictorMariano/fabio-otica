@@ -13,8 +13,8 @@ export const aboutImage: SiteImage = {
 };
 
 export const serviceVisitImage: SiteImage = {
-  src: "/images/real/service/visita.jpg",
-  alt: "Atendimento personalizado com mostruário de armações na Fábio Ótica",
+  src: "/images/visita-domicilio.png",
+  alt: "Óptico profissional realizando atendimento em domicílio, apresentando mostruário de armações para uma cliente",
 };
 
 export const serviceStoreImage: SiteImage = {
