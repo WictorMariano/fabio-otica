@@ -452,7 +452,9 @@ export default function Home() {
         </header>
         <div className="service__grid">
           <article className="service-card">
-            <img src={serviceVisitImage.src} alt={serviceVisitImage.alt} loading="lazy" />
+            <div className="service-card__media">
+              <img src={serviceVisitImage.src} alt={serviceVisitImage.alt} loading="lazy" />
+            </div>
             <div className="service-card__panel">
               <h3>Visita em domicílio</h3>
               <p className="service-card__slogan">Seu atendimento, no conforto da sua casa.</p>
@@ -463,7 +465,9 @@ export default function Home() {
             </div>
           </article>
           <article className="service-card">
-            <img src={serviceStoreImage.src} alt={serviceStoreImage.alt} loading="lazy" />
+            <div className="service-card__media">
+              <img src={serviceStoreImage.src} alt={serviceStoreImage.alt} loading="lazy" />
+            </div>
             <div className="service-card__panel">
               <h3>Atendimento na loja</h3>
               <p className="service-card__slogan">Conheça de perto cada detalhe.</p>
