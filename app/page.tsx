@@ -160,6 +160,18 @@ export default function Home() {
     setActiveSpace((current) => (current + direction + spaceCount) % spaceCount);
   };
 
+  useEffect(() => {
+    if (spaceCount < 2) return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (media.matches) return;
+
+    const timer = window.setInterval(() => {
+      setActiveSpace((current) => (current + 1) % spaceCount);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [spaceCount]);
+
   const openSchedule = (next: ScheduleIntent | "" = "") => {
     setIntent(next);
     setScheduleOpen(true);
@@ -553,11 +565,18 @@ export default function Home() {
               <button type="button" aria-label="Foto anterior do espaço" onClick={() => goSpace(-1)}>←</button>
               <button type="button" className="is-next" aria-label="Próxima foto do espaço" onClick={() => goSpace(1)}>→</button>
             </div>
-            <p className="store__pager">
-              <span>{String(activeSpace + 1).padStart(2, "0")}</span>
-              <span className="store__pager-track"><span style={{ width: `${((activeSpace + 1) / spaceCount) * 100}%` }} /></span>
-              <span>{String(spaceCount).padStart(2, "0")}</span>
-            </p>
+            <div className="store__dots" aria-label="Fotos do espaço">
+              {spacePhotos.map((photo, index) => (
+                <button
+                  key={photo.src}
+                  type="button"
+                  className={index === activeSpace ? "store__dot is-active" : "store__dot"}
+                  aria-label={`Ver foto ${index + 1}`}
+                  aria-current={index === activeSpace}
+                  onClick={() => setActiveSpace(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className="store__copy">
