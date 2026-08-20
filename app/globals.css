@@ -1162,22 +1162,26 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   display:grid;
   grid-template-columns:1.08fr .92fr;
   min-height:680px;
-  background:#f6f0e4;
-  color:#2a2218;
+  background:#1f3328;
+  color:#f6f0e5;
 }
-.contact__glow { position:absolute; z-index:0; width:520px; height:520px; border-radius:50%; pointer-events:none; background:radial-gradient(circle,rgba(var(--gold-rgb),.26),transparent 68%); }
+.contact__glow { position:absolute; z-index:0; width:520px; height:520px; border-radius:50%; pointer-events:none; background:radial-gradient(circle,rgba(var(--gold-rgb),.18),transparent 68%); }
 .contact__glow--left { top:-200px; left:-120px; }
 .contact__glow--right { bottom:-180px; right:-80px; }
 .contact__map { min-height:680px; position:relative; z-index:1; }
-.contact__map:after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset -40px 0 70px rgba(16,12,8,.08); border-right:1px solid rgba(var(--gold-rgb),.22); }
+.contact__map:after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset -40px 0 70px rgba(8,16,12,.2); border-right:1px solid rgba(var(--gold-rgb),.28); }
 .contact__map iframe { border:0; width:100%; height:100%; position:absolute; inset:0; filter:grayscale(.35) sepia(.12) contrast(.98); }
 .contact__content { position:relative; z-index:1; padding:90px 6vw; display:flex; flex-direction:column; justify-content:center; }
+.contact__content .eyebrow { color:var(--gold); }
+.contact__content h2 { color:#f6f0e5; }
+.contact__content h2 em { color:var(--gold-light); }
 .contact__details { margin:42px 0 35px; }
-.contact__details>div { padding:18px 0; display:grid; grid-template-columns:120px 1fr; gap:25px; border-bottom:1px solid rgba(var(--gold-rgb),.18); }
+.contact__details>div { padding:18px 0; display:grid; grid-template-columns:120px 1fr; gap:25px; border-bottom:1px solid rgba(var(--gold-rgb),.28); }
 .contact__details small { color:var(--gold); font-size:9px; letter-spacing:.2em; padding-top:5px; }
-.contact__details p { margin:0; color:#5a4a3a; font-size:16px; line-height:1.6; }
+.contact__details p { margin:0; color:rgba(246,240,229,.86); font-size:16px; line-height:1.6; }
 .contact__actions { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 .contact__actions .button svg { width:17px; height:17px; }
+.contact__actions .line-link { color:#f6f0e5; }
 
 .scheduler { position:fixed; inset:0; z-index:50; display:grid; place-items:center; padding:24px; }
 .scheduler__backdrop { position:absolute; inset:0; border:0; background:rgba(12,9,7,.62); cursor:pointer; }
