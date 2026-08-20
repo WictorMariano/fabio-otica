@@ -75,11 +75,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/logo.png", type: "image/png" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/logo-otica-fabio.png", type: "image/png" },
     ],
-    apple: "/logo.png",
-    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-32.png",
   },
   formatDetection: {
     telephone: true,
@@ -98,8 +98,8 @@ const jsonLd = {
   "@id": `${siteUrl}/#optician`,
   name: siteName,
   alternateName: "Fabio Otica",
-  image: [`${siteUrl}/og.jpg`, `${siteUrl}/images/hero-oculos.png`, `${siteUrl}/logo.png`],
-  logo: `${siteUrl}/logo.png`,
+  image: [`${siteUrl}/og.jpg`, `${siteUrl}/images/hero-oculos.png`, `${siteUrl}/logo-otica-fabio.png`],
+  logo: `${siteUrl}/logo-otica-fabio.png`,
   url: siteUrl,
   telephone: sitePhone,
   description: siteDescription,

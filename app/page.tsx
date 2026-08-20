@@ -63,7 +63,7 @@ function IconWhatsApp() {
 function Brand({ compact = false }: { compact?: boolean }) {
   return (
     <a className={`brand ${compact ? "brand--compact" : ""}`} href="#inicio" aria-label="Fábio Ótica, início">
-      <img src="/logo.png" alt="Ótica Fábio" />
+      <img src="/logo-otica-fabio.png" alt="Ótica Fábio" />
     </a>
   );
 }
