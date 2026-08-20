@@ -129,7 +129,6 @@ function IconService() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCollection, setActiveCollection] = useState(0);
   const [activeSpace, setActiveSpace] = useState(0);
   const [featuredShift, setFeaturedShift] = useState(0);
   const [scheduleOpen, setScheduleOpen] = useState(false);
@@ -156,12 +155,7 @@ export default function Home() {
     { name: "Nome do cliente", role: "Óculos de grau", content: "Aqui entra o texto da avaliação publicada no Google.", rating: 5 },
   ];
 
-  const collectionCount = featuredItems.length;
   const spaceCount = spacePhotos.length;
-  const orderedFeatured = featuredItems.map((_, index) => featuredItems[(activeCollection + index) % collectionCount]);
-  const goCollection = (direction: number) => {
-    setActiveCollection((current) => (current + direction + collectionCount) % collectionCount);
-  };
   const goSpace = (direction: number) => {
     setActiveSpace((current) => (current + direction + spaceCount) % spaceCount);
   };
@@ -387,17 +381,9 @@ export default function Home() {
           </div>
 
           <div className="featured__showcase">
-            <div className="featured__controls" aria-label="Navegação do carrossel">
-              <button type="button" aria-label="Produto anterior" onClick={() => goCollection(-1)}>←</button>
-              <button type="button" className="is-next" aria-label="Próximo produto" onClick={() => goCollection(1)}>→</button>
-            </div>
-            <div className="featured__cards" aria-live="polite">
-              {orderedFeatured.map((item) => (
-                <article
-                  key={item.title}
-                  className="featured-card"
-                  onClick={() => setActiveCollection(featuredItems.findIndex((entry) => entry.title === item.title))}
-                >
+            <div className="featured__cards">
+              {featuredItems.map((item) => (
+                <article key={item.title} className="featured-card">
                   <div className="featured-card__media">
                     <img src={item.src} alt={item.alt} loading="lazy" />
                   </div>
@@ -405,18 +391,6 @@ export default function Home() {
                     <h3>{item.title}</h3>
                   </div>
                 </article>
-              ))}
-            </div>
-            <div className="featured__dots" aria-label="Página do carrossel">
-              {featuredItems.map((item, index) => (
-                <button
-                  key={item.title}
-                  type="button"
-                  className={index === activeCollection ? "featured__dot is-active" : "featured__dot"}
-                  aria-label={`Ver ${item.title}`}
-                  aria-current={index === activeCollection}
-                  onClick={() => setActiveCollection(index)}
-                />
               ))}
             </div>
           </div>
