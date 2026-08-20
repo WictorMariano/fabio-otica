@@ -17,6 +17,9 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
 const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 const googleReviewsUrl = `https://www.google.com/search?q=${encodeURIComponent(`Fábio Ótica ${address} avaliações`)}`;
 const instagramUrl = "https://www.instagram.com/fabiootica_jp/";
+const facebookUrl = "https://www.facebook.com/search/top?q=F%C3%A1bio%20%C3%93tica%20Jo%C3%A3o%20Pessoa";
+const youtubeUrl = "https://www.youtube.com/results?search_query=F%C3%A1bio+%C3%93tica+Jo%C3%A3o+Pessoa";
+const tiktokUrl = "https://www.tiktok.com/search?q=F%C3%A1bio%20%C3%93tica%20Jo%C3%A3o%20Pessoa";
 const whatsappNumber = "5583996258437";
 const timeSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
 
@@ -70,6 +73,37 @@ function IconInstagram() {
       <rect x="6.4" y="6.4" width="19.2" height="19.2" rx="5.6" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="16" cy="16" r="4.9" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="21.6" cy="10.4" r="1.25" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconYouTube() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="4.5" y="8.2" width="23" height="15.6" rx="4.2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M13.8 12.6v6.8l6.4-3.4-6.4-3.4Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconFacebook() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M18.8 28V17.2h3.2l.5-3.6h-3.7v-2.2c0-1 .3-1.8 1.8-1.8h2V6.4h-2.8c-3.1 0-5.2 1.9-5.2 5.3v2h-2.8v3.6H14.6V28h4.2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function IconTikTok() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M20.4 6.2c.8 2.4 2.5 4.1 4.9 4.8v3.1c-1.7-.1-3.3-.6-4.7-1.5v6.7c0 4.2-3.4 7.5-7.6 7.5S5.4 23.5 5.4 19.3s3.4-7.5 7.6-7.5c.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-2.4 0-4.3 1.9-4.3 4.3s1.9 4.3 4.3 4.3 4.3-1.9 4.3-4.3V6.2h3.1Z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
@@ -702,6 +736,29 @@ export default function Home() {
             <a className="line-link line-link--light" href={instagramUrl} target="_blank" rel="noreferrer">@fabiootica_jp <Arrow /></a>
           </div>
         </div>
+        <aside className="social__chips" aria-label="Outras redes">
+          <a className="social-chip" href={youtubeUrl} target="_blank" rel="noreferrer">
+            <span className="social-chip__icon" aria-hidden="true"><IconYouTube /></span>
+            <span className="social-chip__copy">
+              <strong>YouTube</strong>
+              <em>Vídeos e bastidores</em>
+            </span>
+          </a>
+          <a className="social-chip" href={facebookUrl} target="_blank" rel="noreferrer">
+            <span className="social-chip__icon" aria-hidden="true"><IconFacebook /></span>
+            <span className="social-chip__copy">
+              <strong>Facebook</strong>
+              <em>Novidades da loja</em>
+            </span>
+          </a>
+          <a className="social-chip" href={tiktokUrl} target="_blank" rel="noreferrer">
+            <span className="social-chip__icon" aria-hidden="true"><IconTikTok /></span>
+            <span className="social-chip__copy">
+              <strong>TikTok</strong>
+              <em>Looks e tendências</em>
+            </span>
+          </a>
+        </aside>
         <div className="social__embed">
           <blockquote
             className="instagram-media"
