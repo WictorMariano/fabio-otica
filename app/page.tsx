@@ -484,6 +484,8 @@ export default function Home() {
       <section className="process" id="como-funciona">
         <span className="lux-ring lux-ring--tl" aria-hidden="true" />
         <span className="lux-ring lux-ring--br" aria-hidden="true" />
+        <div className="process__glow process__glow--a" aria-hidden="true" />
+        <div className="process__glow process__glow--b" aria-hidden="true" />
         <div className="process__heading">
           <p className="eyebrow light">Como funciona</p>
           <h2>Do primeiro encontro<br />à entrega, <em>no seu ritmo.</em></h2>
@@ -494,6 +496,7 @@ export default function Home() {
         </div>
         <ol className="process__list">
           <li className="process-card">
+            <span className="process-card__shine" aria-hidden="true" />
             <span className="process-card__step">01</span>
             <div>
               <small>VISITA E PERSONALIZAÇÃO</small>
@@ -506,6 +509,7 @@ export default function Home() {
             </div>
           </li>
           <li className="process-card">
+            <span className="process-card__shine" aria-hidden="true" />
             <span className="process-card__step">02</span>
             <div>
               <small>LABORATÓRIO</small>
@@ -514,6 +518,7 @@ export default function Home() {
             </div>
           </li>
           <li className="process-card">
+            <span className="process-card__shine" aria-hidden="true" />
             <span className="process-card__step">03</span>
             <div>
               <small>ENTREGA</small>
