@@ -312,6 +312,7 @@ export default function Home() {
     <main>
       <header className={menuOpen ? "header header--menu-open" : "header"}>
         <div className="header__bar">
+          <span className="header__balance" aria-hidden="true" />
           <Brand compact />
           <button
             className={menuOpen ? "menu-button menu-button--open" : "menu-button"}
@@ -323,18 +324,25 @@ export default function Home() {
           >
             <span />
             <span />
+            <span />
           </button>
-          <nav id="menu-principal" className={menuOpen ? "nav nav--open" : "nav"} aria-label="Navegação principal">
-            <p className="nav__label">Menu</p>
-            <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
-            <a href="#experiencia" onClick={() => setMenuOpen(false)}>Experiência</a>
-            <a href="#atendimento" onClick={() => setMenuOpen(false)}>Atendimento</a>
-            <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a>
-            <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
-            <a href="#galeria" onClick={() => setMenuOpen(false)}>Galeria</a>
-            <a href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>Agendar</a>
-          </nav>
         </div>
+        <nav id="menu-principal" className={menuOpen ? "nav nav--open" : "nav"} aria-label="Navegação principal">
+          <div className="nav__top">
+            <p className="nav__label">Menu</p>
+            <button type="button" className="nav__close" aria-label="Fechar menu" onClick={() => setMenuOpen(false)}>
+              Fechar
+            </button>
+          </div>
+          <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
+          <a href="#experiencia" onClick={() => setMenuOpen(false)}>Experiência</a>
+          <a href="#atendimento" onClick={() => setMenuOpen(false)}>Atendimento</a>
+          <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a>
+          <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
+          <a href="#galeria" onClick={() => setMenuOpen(false)}>Galeria</a>
+          <a href="#redes" onClick={() => setMenuOpen(false)}>Redes</a>
+          <a href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>Agendar</a>
+        </nav>
         {menuOpen ? (
           <button type="button" className="nav-backdrop" aria-label="Fechar menu" onClick={() => setMenuOpen(false)} />
         ) : null}
