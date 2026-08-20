@@ -333,10 +333,16 @@ export default function Home() {
         <div className="about__copy">
           <div className="about__copy-body">
             <p className="eyebrow light">Nossa história</p>
-            <h2 id="about-title"><span>Quinze anos dedicados</span><em>ao seu olhar.</em></h2>
-            <p>A Fábio Ótica é o encontro de uma trajetória de 15 anos em óptica com um espaço pensado para receber você com calma, precisão e estilo.</p>
-            <p>São anos escolhendo armações, ajustando lentes e acompanhando cada cliente até o detalhe final.</p>
-            <blockquote>“Cada atendimento começa pela escuta.”</blockquote>
+            <h2 id="about-title">
+              <span>Quinze anos</span>
+              <span>dedicados</span>
+              <em>ao seu olhar.</em>
+            </h2>
+            <div className="about__copy-text">
+              <p>A Fábio Ótica é o encontro de uma trajetória de 15 anos em óptica com um espaço pensado para receber você com calma, precisão e estilo.</p>
+              <p>São anos escolhendo armações, ajustando lentes e acompanhando cada cliente até o detalhe final.</p>
+              <blockquote>“Cada atendimento começa pela escuta.”</blockquote>
+            </div>
             <a className="button" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
               Agendar atendimento <span aria-hidden="true">→</span>
             </a>
