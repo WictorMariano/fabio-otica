@@ -1,6 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import ImageStreamHero from "@/components/ImageStreamHero";
+import {
+  aboutImage,
+  featuredItems,
+  serviceStoreImage,
+  serviceVisitImage,
+  spacePhotos,
+  streamImages,
+} from "@/lib/site-images";
 
 const address =
   "Rua Roberto Paulo Moreira Coutinho, 1960, Sala 104, Altiplano, João Pessoa - PB";
@@ -131,12 +140,6 @@ export default function Home() {
   const [place, setPlace] = useState("");
   const featuredRef = useRef<HTMLElement>(null);
 
-  const featuredItems = [
-    { title: "Óculos de grau", image: "/images/colecao-grau-cristal.png", alt: "Óculos de grau com armação cristal sobre mármore verde" },
-    { title: "Óculos de sol", image: "/images/colecao-sol.png", alt: "Óculos de sol tartaruga sobre pedestal de pedra" },
-    { title: "Óculos personalizados", image: "/images/colecao-lentes.png", alt: "Óculos personalizados sobre pedestal de vidro" },
-  ];
-
   const lensBrands = [
     { name: "Hoya", src: "/images/brands/hoya.svg" },
     { name: "Zeiss", src: "/images/brands/zeiss.svg" },
@@ -151,12 +154,6 @@ export default function Home() {
     { name: "Nome do cliente", role: "Visita em domicílio", content: "Aqui entra o texto da avaliação publicada no Google.", rating: 5 },
     { name: "Nome do cliente", role: "Atendimento na loja", content: "Aqui entra o texto da avaliação publicada no Google.", rating: 5 },
     { name: "Nome do cliente", role: "Óculos de grau", content: "Aqui entra o texto da avaliação publicada no Google.", rating: 5 },
-  ];
-
-  const spacePhotos = [
-    { src: "/images/entrada-loja-real.png", alt: "Entrada da Fábio Ótica, com portas de vidro e identidade visual dourada" },
-    { src: "/images/loja-real-hero.png", alt: "Interior da Fábio Ótica, com expositores iluminados, madeira e mobiliário contemporâneo" },
-    { src: "/images/ajuste-editorial.png", alt: "Atendimento no ambiente da loja, com ajuste cuidadoso de uma armação" },
   ];
 
   const collectionCount = featuredItems.length;
@@ -278,6 +275,7 @@ export default function Home() {
             <a href="#atendimento" onClick={() => setMenuOpen(false)}>Atendimento</a>
             <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a>
             <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
+            <a href="#galeria" onClick={() => setMenuOpen(false)}>Galeria</a>
             <a href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>Agendar</a>
           </nav>
         </div>
@@ -322,8 +320,8 @@ export default function Home() {
           <span className="about__watermark" aria-hidden="true">15</span>
           <div className="about__frame">
             <img
-              src="/images/sobre-experiencia.png"
-              alt="Atendimento personalizado na Fábio Ótica, com ajuste cuidadoso de uma armação"
+              src={aboutImage.src}
+              alt={aboutImage.alt}
             />
             <span className="about__flare" aria-hidden="true" />
             <div className="about__badge">
@@ -395,7 +393,7 @@ export default function Home() {
                   onClick={() => setActiveCollection(featuredItems.findIndex((entry) => entry.title === item.title))}
                 >
                   <div className="featured-card__media">
-                    <img src={item.image} alt={item.alt} />
+                    <img src={item.src} alt={item.alt} loading="lazy" />
                   </div>
                   <div className="featured-card__copy">
                     <h3>{item.title}</h3>
@@ -474,7 +472,7 @@ export default function Home() {
         </header>
         <div className="service__grid">
           <article className="service-card">
-            <img src="/images/visita-domicilio.png" alt="Óptico profissional realizando atendimento em domicílio, apresentando mostruário de armações para uma cliente" />
+            <img src={serviceVisitImage.src} alt={serviceVisitImage.alt} loading="lazy" />
             <div className="service-card__panel">
               <h3>Visita em domicílio</h3>
               <p className="service-card__slogan">Seu atendimento, no conforto da sua casa.</p>
@@ -485,7 +483,7 @@ export default function Home() {
             </div>
           </article>
           <article className="service-card">
-            <img src="/images/loja-real-hero.png" alt="Interior da Fábio Ótica, com expositores iluminados e ambiente em madeira" />
+            <img src={serviceStoreImage.src} alt={serviceStoreImage.alt} loading="lazy" />
             <div className="service-card__panel">
               <h3>Atendimento na loja</h3>
               <p className="service-card__slogan">Conheça de perto cada detalhe.</p>
@@ -558,6 +556,7 @@ export default function Home() {
                   src={photo.src}
                   alt={photo.alt}
                   className={index === activeSpace ? "is-active" : ""}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ))}
             </div>
@@ -585,6 +584,30 @@ export default function Home() {
             Visite a nossa loja <span aria-hidden="true">→</span>
           </a>
         </div>
+      </section>
+
+      <section className="gallery-stream" id="galeria" aria-labelledby="gallery-title">
+        <ImageStreamHero images={streamImages} className="gallery-stream__hero">
+          <div className="gallery-stream__content">
+            <p className="eyebrow light">Na Fábio Ótica</p>
+            <h2 id="gallery-title">
+              Momentos reais,
+              <br />
+              <em>no seu ritmo.</em>
+            </h2>
+            <p>Da escolha da armação ao ajuste final — imagens do nosso dia a dia na loja.</p>
+            <a
+              className="button"
+              href="#agendar"
+              onClick={(event) => {
+                event.preventDefault();
+                openSchedule();
+              }}
+            >
+              Agendar visita <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </ImageStreamHero>
       </section>
 
       <section className="testimonials" id="depoimentos">
@@ -692,7 +715,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="footer__brand"><Brand /><p>Visão, estilo e cuidado<br />em cada detalhe.</p></div>
-        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a></div>
+        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a></div>
         <div className="footer__address"><small>VISITE-NOS</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104 · Altiplano · João Pessoa — PB</p><a href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a></div>
         <div className="footer__social">
           <small>SIGA A GENTE</small>

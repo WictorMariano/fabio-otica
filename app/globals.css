@@ -759,6 +759,90 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
 }
 .store__copy li span svg { width:18px; height:18px; }
 
+.image-stream {
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+}
+.image-stream__stage {
+  pointer-events:none;
+  position:absolute;
+  inset:0;
+}
+.image-stream__rail {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+}
+.image-stream__card {
+  position:absolute;
+  left:50%;
+  overflow:hidden;
+  backface-visibility:hidden;
+}
+.image-stream__card img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.gallery-stream {
+  position:relative;
+  background:#070605;
+  color:white;
+  overflow:hidden;
+}
+.gallery-stream__hero {
+  min-height:min(72vh,680px);
+}
+.gallery-stream__hero:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(7,6,5,.72) 0%,rgba(7,6,5,.28) 38%,rgba(7,6,5,.72) 100%),
+    radial-gradient(circle at 50% 55%,rgba(var(--gold-rgb),.08),transparent 58%);
+}
+.gallery-stream__content {
+  position:relative;
+  z-index:2;
+  min-height:min(72vh,680px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 6vw 72px;
+  pointer-events:none;
+}
+.gallery-stream__content a,
+.gallery-stream__content button {
+  pointer-events:auto;
+}
+.gallery-stream__content .eyebrow {
+  margin-bottom:18px;
+}
+.gallery-stream__content h2 {
+  font-size:clamp(42px,5vw,72px);
+  max-width:780px;
+  margin:0 0 22px;
+  line-height:.95;
+}
+.gallery-stream__content h2 em {
+  color:var(--gold-light);
+  font-style:italic;
+}
+.gallery-stream__content p {
+  max-width:520px;
+  margin:0 0 34px;
+  color:#c9c0b5;
+  font-size:16px;
+  line-height:1.85;
+}
+
 .testimonials {
   padding:110px 6vw;
   background:#0c0e0b;
@@ -1085,6 +1169,9 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .service__grid { grid-template-columns:1fr; }
   .service-card { min-height:440px; }
   .store { grid-template-columns:1fr; padding:70px 6vw; }
+  .gallery-stream__hero,
+  .gallery-stream__content { min-height:56vh; }
+  .gallery-stream__content { padding:72px 6vw 56px; }
   .about { grid-template-columns:1fr; padding:64px 6vw; gap:28px; }
   .about__visual,
   .about__frame { min-height:520px; }
@@ -1116,7 +1203,7 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   .hero__image { min-height:48vh; }
   .section { padding:95px 6vw; }
   .section__number { top:40px; }
-  .featured h2,.process h2,.store h2,.service h2,.testimonials h2,.contact h2 { font-size:46px; }
+  .featured h2,.process h2,.store h2,.service h2,.testimonials h2,.contact h2,.gallery-stream__content h2 { font-size:46px; }
   .about__copy h2 { font-size:clamp(26px,7.6vw,36px); }
   .featured-card h3 { font-size:24px; }
   .featured__shell { width:100%; padding:52px 6vw 28px; row-gap:22px; }
