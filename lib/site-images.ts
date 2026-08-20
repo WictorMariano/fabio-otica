@@ -48,8 +48,8 @@ export const featuredItems: FeaturedItem[] = [
   },
   {
     title: "Óculos personalizados",
-    src: "/images/real/featured/01-variedade-armacoes.jpg",
-    alt: "Seleção variada de armações para montagem personalizada na Fábio Ótica",
+    src: "/images/real/featured/05-oculos-personalizados.jpg",
+    alt: "Armações variadas em exposição na Fábio Ótica, prontas para montagem personalizada",
   },
 ];
 
