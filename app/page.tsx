@@ -312,7 +312,6 @@ export default function Home() {
     <main>
       <header className={menuOpen ? "header header--menu-open" : "header"}>
         <div className="header__bar">
-          <span className="header__balance" aria-hidden="true" />
           <Brand compact />
           <button
             className={menuOpen ? "menu-button menu-button--open" : "menu-button"}
@@ -336,6 +335,7 @@ export default function Home() {
           </div>
           <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
           <a href="#experiencia" onClick={() => setMenuOpen(false)}>Experiência</a>
+          <a href="/catalogo" onClick={() => setMenuOpen(false)}>Catálogo</a>
           <a href="#atendimento" onClick={() => setMenuOpen(false)}>Atendimento</a>
           <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a>
           <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
@@ -800,7 +800,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="footer__brand"><Brand /><p>Visão, estilo e cuidado<br />em cada detalhe.</p></div>
-        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a></div>
+        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="/catalogo">Catálogo</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a></div>
         <div className="footer__address"><small>VISITE-NOS</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104, Altiplano, João Pessoa, PB</p><a href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a></div>
         <div className="footer__social">
           <small>SIGA A GENTE</small>
