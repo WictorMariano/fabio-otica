@@ -18,3 +18,7 @@ export const sitePhone = "+55-83-99625-8437";
 export const sitePhoneDisplay = "(83) 99625-8437";
 export const siteInstagram = "https://www.instagram.com/fabiootica_jp/";
 export const siteWhatsApp = "https://wa.me/5583996258437";
+export const siteGoogleReviewUrl = "https://maps.app.goo.gl/CRMCLyNshWBkxN788";
+export const siteMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${siteAddress.street}, ${siteAddress.neighborhood}, ${siteAddress.city} - ${siteAddress.region}`,
+)}`;
