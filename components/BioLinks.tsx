@@ -50,15 +50,6 @@ function IconGoogle() {
   );
 }
 
-function IconGlobe() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="16" r="10.4" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M5.6 16h20.8M16 5.6c2.8 3 4.2 6.5 4.2 10.4S18.8 23.4 16 26.4c-2.8-3-4.2-6.5-4.2-10.4S13.2 8.6 16 5.6Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function IconPin() {
   return (
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -121,14 +112,14 @@ const links: BioLink[] = [
     title: "Site oficial",
     subtitle: siteHost,
     href: "/",
-    icon: <IconGlobe />,
+    icon: <img src="/logo-otica-fabio.png" alt="" />,
   },
   {
     id: "catalogo",
     title: "Catálogo de armações",
     subtitle: "Coleções e modelos da loja",
     href: "/catalogo",
-    icon: <img src="/images/catalog/lougge/lou-830/01.jpg" alt="" />,
+    icon: <img src="/images/bio/catalogo-icone.jpg" alt="" />,
   },
   {
     id: "maps",

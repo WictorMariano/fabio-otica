@@ -2519,6 +2519,19 @@ h1 em,h2 em { font-weight:400; color:var(--gold-light); }
   transition:transform .4s ease;
 }
 .bio-link:hover .bio-link__icon--catalogo img { transform:scale(1.12); }
+.bio-link__icon--site {
+  padding:4px;
+  background:radial-gradient(circle at 50% 35%, #2a2116, #0b0907 75%);
+  border-color:rgba(var(--gold-rgb),.45);
+  box-shadow:0 6px 16px rgba(var(--gold-rgb),.25);
+}
+.bio-link__icon--site img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform .4s ease;
+}
+.bio-link:hover .bio-link__icon--site img { transform:scale(1.08); }
 .bio-link__icon--google {
   background:#fff;
   border-color:rgba(255,255,255,.22);
