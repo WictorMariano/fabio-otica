@@ -81,7 +81,7 @@ export default function CatalogView() {
           <a href="/#galeria" onClick={() => setMenuOpen(false)}>
             Galeria
           </a>
-          <a href="/#agendar" onClick={() => setMenuOpen(false)}>
+          <a className="nav__cta" href="/#agendar" onClick={() => setMenuOpen(false)}>
             Agendar
           </a>
         </nav>
@@ -217,6 +217,7 @@ export default function CatalogView() {
           <a href="/catalogo">Catálogo</a>
           <a href="/#loja">A loja</a>
           <a href="/#agendar">Agendar</a>
+          <a href="/bio">Link na bio</a>
         </div>
         <div className="footer__address">
           <small>VISITE-NOS</small>

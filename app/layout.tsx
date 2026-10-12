@@ -166,7 +166,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="preload" as="image" href="/images/hero-oculos.png" />
+        <link rel="preload" as="image" href="/images/hero-fabio.jpg" />
         <link rel="preload" as="image" href="/og.jpg" />
         <script
           type="application/ld+json"

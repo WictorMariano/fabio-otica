@@ -341,7 +341,7 @@ export default function Home() {
           <a href="#loja" onClick={() => setMenuOpen(false)}>A loja</a>
           <a href="#galeria" onClick={() => setMenuOpen(false)}>Galeria</a>
           <a href="#redes" onClick={() => setMenuOpen(false)}>Redes</a>
-          <a href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>Agendar</a>
+          <a className="nav__cta" href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>Agendar</a>
         </nav>
         {menuOpen ? (
           <button type="button" className="nav-backdrop" aria-label="Fechar menu" onClick={() => setMenuOpen(false)} />
@@ -349,18 +349,30 @@ export default function Home() {
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero__glow" />
+        <img
+          className="hero__bg"
+          src="/images/hero-fabio.jpg"
+          alt="Fábio na Fábio Ótica, sentado ao balcão com armações à frente e a marca da loja ao fundo"
+          width={1672}
+          height={941}
+          fetchPriority="high"
+        />
         <div className="hero__content">
-          <p className="eyebrow light">Óculos, estilo e cuidado</p>
+          <p className="eyebrow light">Ótica, estilo e atendimento premium</p>
           <h1>
-            <span>Enxergue o mundo</span>
-            <span>com o seu <em>estilo.</em></span>
+            <span>Mais do que óculos.</span>
+            <span>Uma experiência de</span>
+            <span><em>cuidado visual.</em></span>
           </h1>
           <p className="hero__lead">
-            Armações selecionadas e lentes modernas para transformar conforto, visão e personalidade.
+            Na Fábio Ótica, você encontra curadoria em armações, orientação especializada e um atendimento próximo para enxergar melhor com estilo.
           </p>
           <div className="hero__actions">
             <BrandLink href="#agendar" onClick={(event) => { event.preventDefault(); openSchedule(); }}>
+              <svg className="hero__calendar" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M3.5 9.5h17M8 3v4M16 3v4M7.5 13h2M11 13h2M14.5 13h2M7.5 16.5h2M11 16.5h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
               Agendar atendimento <span aria-hidden="true">→</span>
             </BrandLink>
             <a className="hero__play" href="#loja">
@@ -369,14 +381,45 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <img
-          className="hero__image"
-          src="/images/hero-oculos.png"
-          alt="Armação tartaruga da Fábio Ótica sobre o balcão da loja, com a marca ao fundo"
-          width={1024}
-          height={800}
-          fetchPriority="high"
-        />
+        <ul className="hero__features">
+          <li>
+            <span className="hero__feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="3.6" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M5 20c.9-3.6 3.6-5.6 7-5.6s6.1 2 7 5.6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>Atendimento personalizado</strong>
+              <small>Foco nas suas necessidades</small>
+            </div>
+          </li>
+          <li>
+            <span className="hero__feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="7" cy="13" r="3.6" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="17" cy="13" r="3.6" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M10.6 12.6c.9-.7 1.9-.7 2.8 0M3.4 12.2 2 10M20.6 12.2 22 10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>Curadoria de armações</strong>
+              <small>Marcas e estilos selecionados</small>
+            </div>
+          </li>
+          <li>
+            <span className="hero__feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6.5 4.5h11L21 9l-9 11L3 9l3.5-4.5Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                <path d="M3 9h18M9.5 4.5 8 9l4 11 4-11-1.5-4.5" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>Experiência e confiança</strong>
+              <small>15 anos cuidando da sua visão</small>
+            </div>
+          </li>
+        </ul>
       </section>
 
       <section className="about" id="sobre" aria-labelledby="about-title">
@@ -800,7 +843,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="footer__brand"><Brand /><p>Visão, estilo e cuidado<br />em cada detalhe.</p></div>
-        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="/catalogo">Catálogo</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a></div>
+        <div className="footer__nav"><small>NAVEGAÇÃO</small><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="/catalogo">Catálogo</a><a href="#atendimento">Atendimento</a><a href="#como-funciona">Como funciona</a><a href="#loja">A loja</a><a href="#galeria">Galeria</a><a href="/bio">Link na bio</a></div>
         <div className="footer__address"><small>VISITE-NOS</small><p>Rua Roberto Paulo Moreira Coutinho, 1960<br />Sala 104, Altiplano, João Pessoa, PB</p><a href={mapsUrl} target="_blank" rel="noreferrer">Como chegar <Arrow /></a></div>
         <div className="footer__social">
           <small>SIGA A GENTE</small>
